@@ -6,7 +6,7 @@ require_once "tests.php";
 class Poules
 {
     private $poules;
-    public $andrzej;
+    public $temp;
 
 
     public function __construct()
@@ -21,7 +21,7 @@ class Poules
         {
             if ($poule['naam'] == $poule_name)
             {
-                $this->andrzej = $poule;
+                $this->temp = $poule;
             }
         }
         return $this;
@@ -30,12 +30,12 @@ class Poules
     public function GetListOfTeams()
     {
         $teams = new Teams();
-        return $teams->GetTeamsByPuleID($this->andrzej['id']);
+        return $teams->GetTeamsByPuleID($this->temp['id']);
     }
 
     public function GetPuleId()
     {
-        return $this->andrzej['id'];
+        return $this->temp['id'];
     }
 
     public function GetPoules()

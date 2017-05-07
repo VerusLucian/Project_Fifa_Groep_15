@@ -6,8 +6,8 @@ class Players
 
     public function __construct()
     {
-        $sql = "SELECT * FROM `tbl_players`";
-        $this->players = connectToDataBase()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        $sql            = "SELECT * FROM `tbl_players`";
+        $this->players  = connectToDataBase()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function GetPlayersByTeamId($team_id)

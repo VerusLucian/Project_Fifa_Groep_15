@@ -7,17 +7,24 @@ class Teams
 
     public function __construct()
     {
-        $sql = "SELECT * FROM `tbl_teams`";
-        $teams = connectToDataBase()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        $this->teams = $this->GetTeamsFromDb();
 
-        $arr_teams = array();
+
+    }
+
+    private function GetTeamsFromDb()
+    {
+        $sql        = "SELECT * FROM `tbl_teams`";
+        $teams      = connectToDataBase()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        $arr_teams  = array();
+
         foreach ($teams as $team)
         {
             $time = $team + array('score' => $this->GetTeamScoreByTeamId($team['id']));
             array_push($arr_teams, $time);
         }
 
-        $this->teams = $arr_teams;
+        return $arr_teams;
     }
 
     public function GetTeamsByPuleID($pule_id)
@@ -50,14 +57,14 @@ class Teams
     public function GetTeamScoreByTeamId($team_id)
     {
         $arr_socre = array(
-            'win' => 0,
-            'lose' => 0,
-            'draw' => 0,
+            'win'   => 0,
+            'lose'  => 0,
+            'draw'  => 0,
             'score' => 0
         );
 
-        $sql = "SELECT * FROM `tbl_matches` WHERE `team_id_a` = '$team_id' OR `team_id_b` = '$team_id' AND `score_team_a` IS NOT NULL AND `score_team_b` IS NOT NULL ";
-        $arr_matches = connectToDataBase()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        $sql            = "SELECT * FROM `tbl_matches` WHERE `team_id_a` = '$team_id' OR `team_id_b` = '$team_id' AND `score_team_a` IS NOT NULL AND `score_team_b` IS NOT NULL ";
+        $arr_matches    = connectToDataBase()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($arr_matches as $match) {
             if ($match['team_id_a'] == $team_id) {
@@ -69,11 +76,7 @@ class Teams
                     $arr_socre['draw'] += 1;
                 }
             }
-
-        }
-
-        foreach ($arr_matches as $match) {
-            if ($match['team_id_b'] == $team_id) {
+            elseif ($match['team_id_b'] == $team_id) {
                 if ($match['score_team_b'] > $match['score_team_a']) {
                     $arr_socre['win'] += 1;
                 } elseif ($match['score_team_b'] < $match['score_team_a']) {
