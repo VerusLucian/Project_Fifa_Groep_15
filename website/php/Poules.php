@@ -1,9 +1,12 @@
 <?php
 require_once "db.php";
+require_once "Teams.php";
+require_once "tests.php";
 
 class Poules
 {
-    protected $poules;
+    private $poules;
+    public $andrzej;
 
 
     public function __construct()
@@ -18,15 +21,21 @@ class Poules
         {
             if ($poule['naam'] == $poule_name)
             {
-                return $poule;
-
+                $this->andrzej = $poule;
             }
         }
+        return $this;
     }
 
-    public function GetPuleId($poule)
+    public function GetListOfTeams()
     {
-        return $poule['id'];
+        $teams = new Teams();
+        return $teams->GetTeamsByPuleID($this->andrzej['id']);
+    }
+
+    public function GetPuleId()
+    {
+        return $this->andrzej['id'];
     }
 
     public function GetPoules()
