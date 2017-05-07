@@ -13,10 +13,7 @@ class Teams
         $arr_teams = array();
         foreach ($teams as $team)
         {
-            $time = array(
-                $team,
-                'score' => $this->GetTeamScoreByTeamId($team['id'])
-            );
+            $time = $team + array('score' => $this->GetTeamScoreByTeamId($team['id']));
             array_push($arr_teams, $time);
         }
 

@@ -38,9 +38,13 @@ require_once 'Players.php';
 //}
 
 $teams = new Teams();
+$poule = new Poules();
 
-foreach ($teams->GetTeams() as $team)
+echo 'Poule A';
+echo '<br>';
+echo '<br>';
+foreach ($teams->GetTeamsByPuleID('1') as $team)
 {
-    echo $team['score']['score'];
+    echo 'Team Name : '. $team['name'] . 'Team Score : ' .$team['score']['score'];
     echo '<br>';
 }
