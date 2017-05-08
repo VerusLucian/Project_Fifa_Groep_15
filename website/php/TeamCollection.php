@@ -1,21 +1,22 @@
 <?php
-require_once "db.php";
-
-class Teams
+class TeamCollection
 {
     protected $teams;
+    protected $db;
 
-    public function __construct()
+    public function __construct($db)
     {
-        $this->teams = $this->GetTeamsFromDb();
 
+        $this->db  = $db;
+        $this->teams = $this->GetTeamsFromDb();
 
     }
 
     private function GetTeamsFromDb()
     {
+
         $sql        = "SELECT * FROM `tbl_teams`";
-        $teams      = connectToDataBase()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        $teams      = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         $arr_teams  = array();
 
         foreach ($teams as $team)
@@ -27,7 +28,12 @@ class Teams
         return $arr_teams;
     }
 
-    public function GetTeamsByPuleID($pule_id)
+    public function GetBestTeam()
+    {
+
+    }
+
+    public function GetTeamByPuleId($pule_id)
     {
         $teams = array();
 
@@ -47,6 +53,8 @@ class Teams
                 return $team;
             }
         }
+
+        return false;
     }
 
     public function GetTeams()
@@ -64,7 +72,7 @@ class Teams
         );
 
         $sql            = "SELECT * FROM `tbl_matches` WHERE `team_id_a` = '$team_id' OR `team_id_b` = '$team_id' AND `score_team_a` IS NOT NULL AND `score_team_b` IS NOT NULL ";
-        $arr_matches    = connectToDataBase()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        $arr_matches    = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($arr_matches as $match) {
             if ($match['team_id_a'] == $team_id) {

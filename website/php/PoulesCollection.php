@@ -1,18 +1,15 @@
 <?php
-require_once "db.php";
-require_once "Teams.php";
-require_once "tests.php";
-
-class Poules
+class PoulesCollection
 {
     private $poules;
     public $temp;
+    protected $db;
 
-
-    public function __construct()
+    public function __construct($db)
     {
+        $this->db = $db;
         $sql = "SELECT * FROM `tbl_poules`";
-        $this->poules = connectToDataBase()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        $this->poules = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function GetPouleByName($poule_name)
@@ -27,10 +24,10 @@ class Poules
         return $this;
     }
 
-    public function GetListOfTeams()
+    public function TeamCollectionByPoulId()
     {
-        $teams = new Teams();
-        return $teams->GetTeamsByPuleID($this->temp['id']);
+        $teams = new TeamCollection($this->db);
+        return $teams->GetTeamByPuleId($this->temp['id']);
     }
 
     public function GetPuleId()

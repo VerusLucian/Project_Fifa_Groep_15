@@ -1,16 +1,18 @@
 <?php
-require_once "db.php";
-class Players
+require_once "Database.php";
+class PlayerCollection
 {
     protected $players;
+    protected $db;
 
-    public function __construct()
+    public function __construct($db)
     {
+        $this->db       = $db;
         $sql            = "SELECT * FROM `tbl_players`";
-        $this->players  = connectToDataBase()->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        $this->players  = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function GetPlayersByTeamId($team_id)
+    public function GetPlayerCollectionByTeamId($team_id)
     {
         $players = array();
 
@@ -21,11 +23,10 @@ class Players
                 array_push($players, $player);
             }
         }
-
         return $players;
     }
 
-    public function GetPlayers()
+    public function GetPlayerCollection()
     {
         return $this->players;
     }
