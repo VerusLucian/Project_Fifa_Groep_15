@@ -30,7 +30,7 @@ class TeamCollection
         return $this->aasort($arr_teams,"score");
     }
 
-    public function aasort (&$array, $key) {
+    private function aasort (&$array, $key) {
         $sorter=array();
         $ret=array();
         reset($array);
@@ -99,7 +99,7 @@ class TeamCollection
             elseif ($match['team_id_b'] == $team_id) {
                 if ($match['score_team_b'] > $match['score_team_a']) {
                     $arr_socre['win'] += 1;
-                } elseif ($match['score_team_b'] < $match['score_team_a']) {
+                }elseif ($match['score_team_b'] < $match['score_team_a']) {
                     $arr_socre['lose'] += 1;
                 } elseif ($match['score_team_b'] == $match['score_team_a']) {
                     $arr_socre['draw'] += 1;
