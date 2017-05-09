@@ -7,9 +7,17 @@ $playerCollection = new PlayerCollection($db);
 $timeTabel = new Timetabel($db);
 
 
-$arr_poules = $poule->GetLeadTeamsByPoulId();
 
-var_dump($teams->GetTeams());
+$arr_teams = $teams->GetTeamByPuleId('1');
+$arr_teams_id = array();
+
+foreach ($arr_teams as $team)
+{
+    array_push($arr_teams_id, $team['id']);
+}
+
+
+var_dump($arr_teams_id);
 
 
 
