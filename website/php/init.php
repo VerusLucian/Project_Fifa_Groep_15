@@ -8,3 +8,5 @@ $db = $pdo->connect();
 require_once 'PoulesCollection.php';
 require_once 'TeamCollection.php';
 require_once 'PlayerCollection.php';
+require_once 'Timetabel.php';
+require_once 'MatchCollection.php';

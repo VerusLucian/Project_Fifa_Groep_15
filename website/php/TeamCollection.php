@@ -28,10 +28,6 @@ class TeamCollection
         return $arr_teams;
     }
 
-    public function GetBestTeam()
-    {
-
-    }
 
     public function GetTeamByPuleId($pule_id)
     {
