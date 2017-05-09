@@ -21,11 +21,27 @@ class TeamCollection
 
         foreach ($teams as $team)
         {
-            $time = $team + array('score' => $this->GetTeamScoreByTeamId($team['id']));
+            $time = $team + $this->GetTeamScoreByTeamId($team['id']);
             array_push($arr_teams, $time);
         }
 
-        return $arr_teams;
+
+
+        return $this->aasort($arr_teams,"score");
+    }
+
+    public function aasort (&$array, $key) {
+        $sorter=array();
+        $ret=array();
+        reset($array);
+        foreach ($array as $ii => $va) {
+            $sorter[$ii]=$va[$key];
+        }
+        arsort($sorter);
+        foreach ($sorter as $ii => $va) {
+            $ret[$ii]=$array[$ii];
+        }
+        return $array=$ret;
     }
 
 

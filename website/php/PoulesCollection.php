@@ -24,6 +24,15 @@ class PoulesCollection
         return $this;
     }
 
+    public function GetLeadTeamsByPoulId()
+    {
+        $team = new TeamCollection($this->db);
+
+        $team->GetTeams();
+
+        return $team->GetTeams();
+    }
+
     public function TeamCollectionByPoulId()
     {
         $teams = new TeamCollection($this->db);
