@@ -116,27 +116,41 @@ header .container nav{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 10px 0px;
+	margin: 5px 0px;
 }
 
 header h1{
-	color: #7f9a65;
+	color: #15a768;
 	font-weight: bold;
 	font-size: 38px;
 }
 
 header a, header a:focus{
-	color: #7f9a65;
+	color: #15a768;
 	font-weight: bold;
 	font-size: 24px;
 	text-decoration: none;
 }
 
 header a:hover{
-	color: #5e724b;
+	color: #0e7c4d;
 	font-weight: bold;
 	font-size: 24px;
 	text-decoration: none;
+}
+
+header h1 a, header h1 a:focus{
+	color: #15a768;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 38px;
+}
+
+header h1 a:hover{
+	color: #0e7c4d;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 38px;
 }
 
 /*Score*/
@@ -152,9 +166,8 @@ header a:hover{
 }
 
 .score h3{
-    color: #7f9a65;
+    color: #15a768;
     font-weight: bold;
-    text-decoration: underline;
 }
 
 .score .item{

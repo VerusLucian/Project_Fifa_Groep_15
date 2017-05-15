@@ -12,7 +12,7 @@
     <header>
         <div class="container">
             <nav>
-                <h1>Fifa Dev Edition</h1>
+                <h1><a href="index.php">Fifa Dev Edition</a></h1>
                 <?php
                 if(!isset($_SESSION['logged_in']))
                 {
