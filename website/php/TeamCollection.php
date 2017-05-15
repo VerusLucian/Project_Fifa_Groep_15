@@ -92,7 +92,7 @@ class TeamCollection
                     $arr_socre['win'] += 1;
                 } elseif ($match['score_team_a'] < $match['score_team_b']) {
                     $arr_socre['lose'] += 1;
-                } elseif ($match['score_team_a'] == $match['score_team_b']) {
+                } elseif ($match['score_team_a'] == $match['score_team_b'] && $match['score_team_a'] != NULL) {
                     $arr_socre['draw'] += 1;
                 }
             }
@@ -101,7 +101,7 @@ class TeamCollection
                     $arr_socre['win'] += 1;
                 }elseif ($match['score_team_b'] < $match['score_team_a']) {
                     $arr_socre['lose'] += 1;
-                } elseif ($match['score_team_b'] == $match['score_team_a']) {
+                } elseif ($match['score_team_b'] == $match['score_team_a'] && $match['score_team_b'] != NULL) {
                     $arr_socre['draw'] += 1;
                 }
             }
