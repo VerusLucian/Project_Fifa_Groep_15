@@ -95,11 +95,51 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-*, .score *{
+*, .score *, header *{
     margin: 0px;
     padding: 0px;
     list-style: none;
 }
+
+/*Header*/
+
+header, footer{
+	background: #3c3c3c;
+	width: 100%;
+}
+
+header .container nav{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 10px 0px;
+}
+
+header h1{
+	color: #7f9a65;
+	font-weight: bold;
+	font-size: 38px;
+}
+
+header a, header a:focus{
+	color: #7f9a65;
+	font-weight: bold;
+	font-size: 24px;
+	text-decoration: none;
+}
+
+header a:hover{
+	color: #5e724b;
+	font-weight: bold;
+	font-size: 24px;
+	text-decoration: none;
+}
+
+/*Score*/
 
 .score ul{
     display: -webkit-flex;
@@ -130,10 +170,21 @@ textarea {
     flex-direction: column;
 }
 
+/*Footer*/
 
+footer .container{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+}
 
-
-
+footer p{
+	color: lightgrey;
+	margin: 10px 0px;
+}
 
 
 

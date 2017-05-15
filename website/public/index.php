@@ -15,4 +15,4 @@ require '../php/init.php';
 
     </div>
 
-<?php require(realpath(__DIR__) . '/templates/footer.php');
+<?php require(realpath(__DIR__) . '/templates/footer.php'); ?>
