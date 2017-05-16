@@ -8,5 +8,5 @@ $timeTabel = new Timetabel($db);
 $machs = new MatchCollection($db);
 $finaltabel = new FinalTabel($db);
 
-var_dump($finaltabel->GetLeadTeamsByPoulId(1));
+$machs->MakePoulMatchesByPoulId(2);
 ?>

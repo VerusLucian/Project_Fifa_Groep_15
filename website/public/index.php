@@ -1,5 +1,6 @@
 <?php require(realpath(__DIR__) . '/templates/header.php');
 require '../php/init.php';
+$final = new FinalTabel($db);
 ?>
 
 
