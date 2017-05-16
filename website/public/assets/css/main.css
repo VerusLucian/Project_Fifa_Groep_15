@@ -159,6 +159,47 @@ header h1 a:hover{
 	font-size: 38px;
 }
 
+/*Table*/
+
+.container .dropdown .col-md-2{
+	height: 50px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.container .dropdown .col-md-2 h2{
+	margin: 0px;
+	text-align: center;
+	font-weight: bold;
+	color: #15a768;
+}
+
+.container .dropdown .col-md-2 p{
+	margin: 0px;
+}
+
+.container{
+	padding: 20px 0px 0px 0px;
+}
+
+.container .dropdown{
+	background: #f3f4f5;
+	padding: 50px;
+	border-radius: 10px;
+}
+
+.container .dropdown p{
+	background: #fff;
+	border: 1px solid #3c3c3c;
+	border-radius: 10px;
+	text-align: center;
+}
+
 /*Score*/
 
 .score ul{

@@ -6,8 +6,9 @@ require '../php/init.php';
     <div class="main-content">
 
         <?php
+        include 'templates/dropdowntable.php';
         include 'templates/poules.php';
-        include 'templates/tijdschema.php'
+        include 'templates/tijdschema.php';
         ?>
 
 
