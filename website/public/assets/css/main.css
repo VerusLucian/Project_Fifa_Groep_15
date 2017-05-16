@@ -94,7 +94,13 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
+html,body{
+    height: 100%
+}
+.btn-success{
+    background-color: #15a768;
+    border-color: #15a768;
+}
 *, .score *, header *{
     margin: 0px;
     padding: 0px;
@@ -184,6 +190,12 @@ header h1 a:hover{
 }
 
 /*Footer*/
+footer{
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
 
 footer .container{
 	display: -webkit-flex;

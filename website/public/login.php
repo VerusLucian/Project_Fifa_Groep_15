@@ -13,14 +13,14 @@ if (isset($_GET['message'])) {
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Example@live.nl" method="POST" required>
+                <input type="email" name="email" id="email" class="form-control" placeholder="example@example.nl" method="POST" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Password1" method="POST" required>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Wachtword" method="POST" required>
             </div>
             <div class="form-group">
-                <input type="submit" value="Login" class="btn btn-primary">
+                <input type="submit" value="Login" class="btn btn-success">
             </div>
         </form>
 
@@ -30,26 +30,26 @@ if (isset($_GET['message'])) {
             </div>
             <div class="form-group">
                 <label for="name">Naam:</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Donald" method="POST" required>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Naam" method="POST" required>
             </div>
             <div class="form-group">
                 <label for="lastname">Achternaam:</label>
-                <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Trump" method="POST" required>
+                <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Achternaam" method="POST" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Voorbeeld@live.nl" method="POST" required>
+                <input type="email" name="email" id="email" class="form-control" placeholder="example@example.nl" method="POST" required>
             </div>
             <div class="form-group">
                 <label for="password">Wachtwoord:</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="W8woord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" method="POST" required>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Wachtwoord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" method="POST" required>
             </div>
             <div class="form-group">
                 <label for="passwordconfirm">Bevestig wachtwoord:</label>
-                <input type="password" name="passwordconfirm" id="passwordconfirm" class="form-control" placeholder="W8woord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" method="POST" required>
+                <input type="password" name="passwordconfirm" id="passwordconfirm" class="form-control" placeholder="Wachtwoord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" method="POST" required>
             </div>
             <div class="form-group">
-                <input type="submit" value="Register" class="btn btn-primary">
+                <input type="submit" value="Register" class="btn btn-success">
             </div>
         </form>
     </div>
