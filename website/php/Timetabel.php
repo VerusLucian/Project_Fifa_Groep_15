@@ -21,7 +21,7 @@ class Timetabel
 
         foreach ($matchCollection as $match)
         {
-            if ($match['score_team_a'] == NULL && $match['score_team_b'] == NULL)
+            if ($match['score_team_a'] == NULL && $match['score_team_b'] == NULL && $match['start_time'] != NULL)
             {
                 $TeamA = $team->GetTeamById($match['team_id_a']);
                 $TeamB = $team->GetTeamById($match['team_id_b']);

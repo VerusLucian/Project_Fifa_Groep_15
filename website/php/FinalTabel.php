@@ -11,7 +11,19 @@ class FinalTabel
     public function GetLeadTeamsByPoulId($poul_id)
     {
         $teams = new TeamCollection($this->db);
-        return array_slice($teams->GetTeamByPuleId($poul_id), 0, 2);
-    }
 
+        $arr_leadteams = array();
+        foreach (array_slice($teams->GetTeamByPuleId($poul_id), 0, 2) as $item)
+        {
+            if ($item['win'] == 0 && $item['lose'] == 0 && $item['draw'] == 0)
+            {
+
+            }else
+            {
+                array_push($arr_leadteams, $item);
+            }
+
+        }
+        return $arr_leadteams;
+    }
 }
