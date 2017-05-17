@@ -2,11 +2,6 @@
 require '../php/init.php';
 $final = new FinalTabel($db);
 ?>
-<?php
-if (isset($_GET['message'])) {
-    echo '<p>' . $_GET['message'] . '</p>';
-}
-?>
     <div class="container">
         <form class="col-xs-6" action="../php/login_app.php">
             <div class="page-header">
@@ -53,5 +48,14 @@ if (isset($_GET['message'])) {
                 <input type="submit" value="Register" class="btn btn-success">
             </div>
         </form>
+        <?php
+        if (isset($_GET['message'])) {
+            echo '<p>' . $_GET['message'] . '</p>';
+        }
+        else
+        {
+            echo '<br>.';
+        }
+        ?>
     </div>
 <?php require(realpath(__DIR__) . '/templates/footer.php'); ?>

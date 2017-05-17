@@ -2,7 +2,7 @@
 
 session_start();
 
-require('database.php');
+require('init.php');
 
 $email          = trim($_GET['email']);
 $passwordraw    = trim($_GET['password']);
@@ -13,7 +13,7 @@ if(!empty($email) && !empty($password))
     if (filter_var($email, FILTER_VALIDATE_EMAIL))
     {
         $sql = "SELECT * FROM tbl_members WHERE email='$email' && password='$password'";
-        $amount = $database->query($sql)->rowCount();
+        $amount = $db->query($sql)->rowCount();
 
         if ($amount == 1) {
             echo "You are succesfully logged in!";
@@ -24,7 +24,6 @@ if(!empty($email) && !empty($password))
             echo "<span style='color: red'>Your given data did not match!</span>";
             $message = "<span style='color: red'>Your given data did not match!</span>";
             header("Location: ../public/login.php?message=$message");
-
         }
     }
     else

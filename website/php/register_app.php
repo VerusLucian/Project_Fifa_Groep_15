@@ -1,6 +1,6 @@
 <?php
 
-require('database.php');
+require('init.php');
 
 $name = trim($_GET['name']);
 $lastname = trim($_GET['lastname']);
@@ -39,35 +39,35 @@ if(!empty($email) && !empty($passwordraw) && !empty($name) && !empty($lastname))
         {
             $sql = "INSERT INTO tbl_members (email, password, firstname, lastname) VALUES ('$email', '$password', '$name', '$lastname')";
 
-            try{
-                $database->query($sql);
+//            try{
+                $db->query($sql);
                 echo "You are succesfully registed!";
                 $message = 'You are succesfully registed!';
                 header("Location: ../public/login.php?message=$message");
-        } catch (PDOException $e)
-            {
-                echo "<span style='color: red'>User already exists</span>";
-                $message = "<span style='color: red'>User already exists</span>";
-                header("Location: ../public/register.php?message=$message");
-            }
+//        } catch (PDOException $e)
+//            {
+//                echo "<span style='color: red'>User already exists</span>";
+//                $message = "<span style='color: red'>User already exists</span>";
+//                header("Location: ../public/register.php?message=$message");
+//            }
         }
         else
         {
             echo "<span style='color: red'>Email is not valid!</span>";
             $message = "<span style='color: red'>Email is not valid!</span>";
-            header("Location: ../public/register.php?message=$message");
+            header("Location: ../public/login.php?message=$message");
         }
     }
     else
     {
         echo "<span style='color: red'>Password is not valid!</span>";
         $message = "<span style='color: red'>Password is not valid!</span>";
-        header("Location: ../public/register.php?message=$message");
+        header("Location: ../public/login.php?message=$message");
     }
 }
 else
 {
     echo "<span style='color: red'>Missing required date!</span>";
     $message = "<span style='color: red'>Missing required data!</span>";
-    header("Location: ../public/register.php?message=$message");
+    header("Location: ../public/login.php?message=$message");
 }

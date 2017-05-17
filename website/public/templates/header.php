@@ -16,6 +16,24 @@
                 <?php
                 if(!isset($_SESSION['logged_in']))
                 {
+                    $message = "<span style='color: red'>Om teams aan te kunnen maken moet je ingelogt zijn</span>";
+                    echo "<a href='login.php?message=$message'>Teams aanmaken</a>";
+                }
+                else
+                {
+                    if ($_SESSION['logged_in'] == false)
+                    {
+                        $message = "<span style='color: red'>Om teams aan te kunnen maken moet je inloggen</span>";
+                        echo "<a href='login.php?message=$message'>Teams aanmaken</a>";
+                    }
+                    else
+                    {
+                        echo '<a href="teams.php">Teams aanmaken</a>';
+                    }
+                }
+
+                if(!isset($_SESSION['logged_in']))
+                {
                     echo '<a href="login.php">Login</a>';
                 }
                 else
