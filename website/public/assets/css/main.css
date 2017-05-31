@@ -95,7 +95,11 @@ textarea {
    Author's custom styles
    ========================================================================== */
 html,body{
-    height: 100%
+    height: 100%;
+}
+
+.main-content{
+	min-height: 100vh;
 }
 .btn-success{
     background-color: #15a768;
@@ -230,7 +234,23 @@ header h1 a:hover{
     flex-direction: column;
 }
 
+/*Teams-toevoegen*/
+
+.teams{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+}
+
+.teams-toevoegen button{
+	margin-bottom: 25px;
+}
+
 /*Footer*/
+
 footer{
 	display: -webkit-flex;
 	display: -moz-flex;

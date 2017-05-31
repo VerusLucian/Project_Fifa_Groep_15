@@ -2,7 +2,7 @@
 require '../php/init.php';
 $final = new FinalTabel($db);
 ?>
-    <div class="container">
+    <div class="main-content">
         <form class="col-xs-6" action="../php/login_app.php">
             <div class="page-header">
                 <h2>Login</h2>
@@ -26,11 +26,11 @@ $final = new FinalTabel($db);
             </div>
             <div class="form-group">
                 <label for="name">Naam:</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Naam" method="POST" required>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Donald" method="POST" required>
             </div>
             <div class="form-group">
                 <label for="lastname">Achternaam:</label>
-                <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Achternaam" method="POST" required>
+                <input type="text" name="lastname" id="lastname" class="form-control" placeholder="Trump" method="POST" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>

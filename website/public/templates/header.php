@@ -23,7 +23,7 @@
                 {
                     if ($_SESSION['logged_in'] == false)
                     {
-                        $message = "<span style='color: red'>Om teams aan te kunnen maken moet je inloggen</span>";
+                        $message = "<span style='color: red'>Om teams aan te kunnen maken moet je inlogt zijn</span>";
                         echo "<a href='login.php?message=$message'>Teams aanmaken</a>";
                     }
                     else
