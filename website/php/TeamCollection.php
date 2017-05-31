@@ -113,11 +113,11 @@ class TeamCollection
         return $arr_socre;
     }
 
-    public function AddTeam($team_Name, $memberid, $photo, $description)
+    public function AddTeam($team_name, $img,$description, $memberid)
     {
-        $sql = "INSERT INTO `project_fifa`.`tbl_teams` (`id`, `name`, `created_at`, `deleted_at`) VALUES (NULL, :derp, CURRENT_TIMESTAMP, NULL)";
+        $sql = "INSERT INTO `project_fifa`.`tbl_teams` (`id`, `poule_id`, `name`, `img`, `description`, `created_by`, `created_at`, `deleted_at`) VALUES (NULL, NULL , :teamname, :img, :description, :memberid, CURRENT_TIMESTAMP, NULL);";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(array());
+        $stmt->execute(array(':teamname' => $team_name, ':img' => $img, ':description' => $description, ':memberid' => $memberid));
     }
 }
 
