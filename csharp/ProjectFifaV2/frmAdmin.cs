@@ -67,18 +67,43 @@ namespace ProjectFifaV2
 
         private void btnLoadData_Click(object sender, EventArgs e)
         {
+            // This is letting us to load in a CSV file.
+
             if (!(txtPath.Text == null))
             {
+                string sql = "BULK INSERT TblTeams" +
+               " FROM '" + txtPath.Text + "'" +
+                "WITH" +
+                "(" +
+                   " FIRSTROW = 2," +
+                   " FIELDTERMINATOR = ',', " +
+                   " ROWTERMINATOR = '\n', " +
+                   " TABLOCK" +
+                ")";
+
                 dbh.OpenConnectionToDB();
 
+                ExecuteSQL(sql);
+
                 dbh.CloseConnectionToDB();
+
+                // This disables a couple of buttons and/or text boxes to be sure that an exception won't happen.
+
+                btnExecute.Enabled = true;
+                btnLoadData.Enabled = false;
+                btnSelectFile.Enabled = false;
+
+                txtQuery.Enabled = true;
+                txtPath.Enabled = false;
             }
             else
             {
+                // This shows a message if nothing is selected.
+
                 MessageHandler.ShowMessage("No filename selected.");
             }
         }
-        
+
         private string GetFilePath()
         {
             string filePath = "";

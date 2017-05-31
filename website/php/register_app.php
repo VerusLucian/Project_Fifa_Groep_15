@@ -10,21 +10,18 @@ $passwordconfirmraw = trim($_GET['passwordconfirm']);
 
 if (strlen($name) < 2 && strlen($name) > 15)
 {
-    echo "<span style='color: red'>Name is not valid!</span>";
     $message = "<span style='color: red'>Name is not valid!</span>";
     header("Location: ../public/register.php?message=$message");
 }
 
 if (strlen($lastname) < 2 && strlen($lastname) > 30)
 {
-    echo "<span style='color: red'>Lastname is not valid!</span>";
     $message = "<span style='color: red'>Lastname is not valid!</span>";
     header("Location: ../public/register.php?message=$message");
 }
 
 if ($passwordraw != $passwordconfirmraw)
 {
-    echo "<span style='color: red'>Password did not match!</span>";
     $message = "<span style='color: red'>Password did not match!</span>";
     header("Location: ../public/register.php?message=$message");
 }
@@ -41,7 +38,6 @@ if(!empty($email) && !empty($passwordraw) && !empty($name) && !empty($lastname))
 
 //            try{
                 $db->query($sql);
-                echo "You are succesfully registed!";
                 $message = 'You are succesfully registed!';
                 header("Location: ../public/login.php?message=$message");
 //        } catch (PDOException $e)
@@ -53,21 +49,18 @@ if(!empty($email) && !empty($passwordraw) && !empty($name) && !empty($lastname))
         }
         else
         {
-            echo "<span style='color: red'>Email is not valid!</span>";
             $message = "<span style='color: red'>Email is not valid!</span>";
             header("Location: ../public/login.php?message=$message");
         }
     }
     else
     {
-        echo "<span style='color: red'>Password is not valid!</span>";
         $message = "<span style='color: red'>Password is not valid!</span>";
         header("Location: ../public/login.php?message=$message");
     }
 }
 else
 {
-    echo "<span style='color: red'>Missing required date!</span>";
     $message = "<span style='color: red'>Missing required data!</span>";
     header("Location: ../public/login.php?message=$message");
 }

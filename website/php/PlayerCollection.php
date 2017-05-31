@@ -31,4 +31,11 @@ class PlayerCollection
         return $this->players;
     }
 
+    public function AddPlayer($studen_id, $first_name, $last_name, $team_id)
+    {
+        $sql = "INSERT INTO `tbl_players` (`id`, `student_id`, `team_id`, `first_name`, `last_name`, `created_at`, `deleted_at`) VALUES (NULL, :student_id, :team_id, :first_name, :last_name, CURRENT_TIMESTAMP, NULL);";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array('student_id' => $studen_id, 'team_id' => $team_id, 'first_name' => $first_name, 'last_name' => $last_name));
+    }
+
 }

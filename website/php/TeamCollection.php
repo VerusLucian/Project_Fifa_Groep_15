@@ -112,5 +112,12 @@ class TeamCollection
 
         return $arr_socre;
     }
+
+    public function AddTeam($team_Name, $memberid, $photo, $description)
+    {
+        $sql = "INSERT INTO `project_fifa`.`tbl_teams` (`id`, `name`, `created_at`, `deleted_at`) VALUES (NULL, :derp, CURRENT_TIMESTAMP, NULL)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array());
+    }
 }
 

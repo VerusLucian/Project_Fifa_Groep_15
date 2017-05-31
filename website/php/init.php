@@ -2,7 +2,7 @@
 
 require __DIR__ . '/Database.php';
 
-$pdo = new Database('szyszkownica.pl', 'project_fifa', 'project_fifa', 'lolo');
+$pdo = new Database('84.26.202.94', 'project_fifa', 'project_fifa', 'lolo');
 $db = $pdo->connect();
 
 require __DIR__ .  '/PoulesCollection.php';

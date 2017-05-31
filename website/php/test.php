@@ -8,5 +8,15 @@ $timeTabel = new Timetabel($db);
 $machs = new MatchCollection($db);
 $finaltabel = new FinalTabel($db);
 
-$machs->MakePoulMatchesByPoulId(2);
-?>
+
+
+//$sql = "SELECT * FROM `tbl_teams`";
+//$list = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+//
+//$fp = fopen('file.csv', 'w');
+//
+//foreach ($list as $fields) {
+//    fputcsv($fp, $fields);
+//}
+//
+//fclose($fp);
