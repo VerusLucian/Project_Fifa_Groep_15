@@ -26,14 +26,6 @@ if(!empty($email) && !empty($password))
         $amount = $db->query($sql)->rowCount();
 
         if ($amount == 1) {
-<<<<<<< Updated upstream
-            $message = "You are succesfully logged in!";
-            header("Location: ../public/index.php?message=$message");
-            $_SESSION['logged_in'] = true;
-
-        } else {
-            $message = "<span style='color: red'>Your given data did not match!</span>";
-=======
             echo "You are succesfully logged in!";
             $message = "U bent succesvol ingelogd!";
             header("Location: ../public/index.php?message=$message");
@@ -44,29 +36,20 @@ if(!empty($email) && !empty($password))
         {
             echo "<span style='color: red'>Your given data did not match!</span>";
             $message = "<span style='color: red'>De gegeven data kwam niet overeen!</span>";
->>>>>>> Stashed changes
             header("Location: ../public/login.php?message=$message");
 
         }
     }
     else
     {
-<<<<<<< Updated upstream
-        $message = "<span style='color: red'>Email is not valid!</span>";
-=======
         echo "<span style='color: red'>Email is not valid!</span>";
         $message = "<span style='color: red'>Email is niet geldig!</span>";
->>>>>>> Stashed changes
         header("Location: ../public/login.php?message=$message");
     }
 }
 else
 {
-<<<<<<< Updated upstream
-    $message = "<span style='color: red'>No email and/or password given!</span>";
-=======
     echo "<span style='color: red'>No email and/or password given!</span>";
     $message = "<span style='color: red'>Geen email en/of wachtwoord meegegeven!</span>";
->>>>>>> Stashed changes
     header("Location: ../public/login.php?message=$message");
 }
