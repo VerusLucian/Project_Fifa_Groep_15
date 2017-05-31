@@ -1,11 +1,4 @@
 <div class="container">
-<<<<<<< Updated upstream
-    <form action="">
-        <div class="form-group">
-            <input type="text" name="player[$i][dcode]" id="">
-            <input type="text" name="player[$i][naam]">
-            <input type="text" name="player[$i][achternaam]">
-=======
     <div class="teams">
         <div class="teams-toevoegen">
             <form class="col-xs-6" action="../php/teams-toevoegen.php">
@@ -26,7 +19,6 @@
                 </div>
             <button type="submit" class="btn">Submit</button>
           </form>
->>>>>>> Stashed changes
         </div>
     </div>
 </div>
