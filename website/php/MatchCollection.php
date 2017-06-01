@@ -47,11 +47,14 @@ class MatchCollection
     public function MatchCollectionEndedByTeamId($team_id)
     {
         $arr_team_match = array();
+        $teams = new TeamCollection($this->db);
         foreach ($this->GetMatchCollection() as $match)
         {
             //teamid || teamidb
-            if (($match['team_id_a'] == $team_id || $match['team_id_b'] == $team_id) && ($match['score_team_a'] != NULL || $match['score_team_b'] != NULL))
+            if (($match['team_id_a'] == $team_id || $match['team_id_b'] == $team_id) && ($match['score_team_a'] != NULL || $match['score_team_b'] != NULL) && $match['start_time'] != NULL)
             {
+                $match['team_a'] = $teams->GetTeamById($match['team_id_a'])['name'];
+                $match['team_b'] = $teams->GetTeamById($match['team_id_b'])['name'];
                 array_push($arr_team_match, $match);
             }
         }
