@@ -39,6 +39,46 @@ class MatchCollection
         }
     }
 
+    public function UpdateMatchTimes($start_time, $duration_time, $poule_id)
+    {
+
+        $arr_match_collection = $this->GetMatchByPoulId($poule_id);
+        shuffle($arr_match_collection);
+
+        foreach ($arr_match_collection as $match)
+        {
+            $sql = "UPDATE `project_fifa`.`tbl_matches` SET `start_time` = :timeofmach WHERE `tbl_matches`.`id` = :pouleid ;";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute(array('timeofmach' => $start_time, 'pouleid' => $match['id']));
+            
+            $start_time += $duration_time;
+        }
+    }
+
+    public function GetMatchByPoulId($poule_id)
+    {
+        $TeamCollection = new TeamCollection($this->db);
+        $arr_teams_in_poule = $TeamCollection->GetTeamByPuleId($poule_id);
+
+        $arr_match_collection = array();
+        foreach ($arr_teams_in_poule as $team)
+        {
+            foreach($this->matchCollection as $match)
+            {
+                if ($match['team_id_a'] == $team['id'] || $match['team_id_b'] == $team['id'] && in_array($match['id'], $arr_match_collection))
+                {
+                    array_push($arr_match_collection, $match);
+                }
+            }
+        }
+
+        return $arr_match_collection;
+
+
+
+
+    }
+
     public function GetMatchCollection()
     {
         return $this->matchCollection;
