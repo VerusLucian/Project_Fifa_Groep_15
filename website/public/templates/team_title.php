@@ -18,9 +18,9 @@ else {
 }
 
 ?>
-<div class="container">
+<div class="title">
     <div class="logo">
-        <img src=" <?php echo $arr_team['img']; ?>" alt="" height="100px" width="100px">
+        <img src=" <?php echo $arr_team['img']; ?>" alt="" height="200px" width="200px">
     </div>
     <div class="head">
         <h1><?php echo $arr_team['name']; ?></h1>
