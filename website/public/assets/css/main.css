@@ -249,10 +249,40 @@ header h1 a:hover{
 	margin-bottom: 25px;
 }
 /*team_info*/
-
-
-
-
+.title{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px 0px;
+}
+.head{
+    margin: 0 150px 0 5px;
+;}
+.team_players{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px 0px;
+    padding:3px;
+}
+div.players{
+    border-style: solid;
+    width: 100px;
+    margin: 5px;
+    padding:5px;
+    text-align: center;
+}
+div.team_players{
+    margin: 10 0 10px 0;
+}
 
 
 

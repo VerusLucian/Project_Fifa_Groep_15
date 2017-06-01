@@ -7,7 +7,7 @@
  */
 
 ?>
-    <div class="container">
+    <div class="team_players">
         <?php
         $arr_players = $players->GetPlayerCollectionByTeamId($team_id);
             foreach ($arr_players as $player)
