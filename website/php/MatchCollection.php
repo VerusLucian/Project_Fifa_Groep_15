@@ -43,4 +43,19 @@ class MatchCollection
     {
         return $this->matchCollection;
     }
+
+    public function MatchCollectionEndedByTeamId($team_id)
+    {
+        $arr_team_match = array();
+        foreach ($this->GetMatchCollection() as $match)
+        {
+            //teamid || teamidb
+            if (($match['team_id_a'] == $team_id || $match['team_id_b'] == $team_id) && ($match['score_team_a'] != NULL || $match['score_team_b'] != NULL))
+            {
+                array_push($arr_team_match, $match);
+            }
+        }
+        return$arr_team_match;
+    }
 }
+

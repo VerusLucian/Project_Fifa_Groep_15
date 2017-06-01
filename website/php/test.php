@@ -20,3 +20,5 @@ $finaltabel = new FinalTabel($db);
 //}
 //
 //fclose($fp);
+
+var_dump($machs->MatchCollectionEndedByTeamId(3));
