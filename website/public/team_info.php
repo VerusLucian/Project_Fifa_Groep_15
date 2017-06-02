@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once '../php/init.php';
 if (isset($_GET['team_id']))
