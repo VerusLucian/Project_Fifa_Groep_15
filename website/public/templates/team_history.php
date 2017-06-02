@@ -19,7 +19,18 @@
 
         foreach ($arr_matches as $item)
         {
-            echo '<tr class="danger">';
+            if ($match->WinorloeseByTeamId($item, $team_id) == 'win')
+            {
+                echo '<tr class="success">';
+            }
+            elseif($match->WinorloeseByTeamId($item, $team_id) == 'lose')
+            {
+                echo '<tr class="danger">';
+            }
+            elseif($match->WinorloeseByTeamId($item,$team_id) == 'draw'){
+                echo '<tr class="warning">';
+            }
+
             echo "<td>" .$item['start_time']."</td>";
             echo "<td>" .$item['team_a']."</td>";
             echo "<td>" .$item['score_team_a']." : ". $item ['score_team_b'];

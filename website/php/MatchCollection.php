@@ -73,10 +73,22 @@ class MatchCollection
         }
 
         return $arr_match_collection;
+    }
 
+    function WinorloeseByTeamId($match, $team_id)
+    {
 
-
-
+        if ($match['score_team_a'] == $match['score_team_b'])
+        {
+            return 'draw';
+        }
+        elseif(($match['team_id_a'] == $team_id && $match['score_team_a'] > $match['score_team_b']) || ($match['team_id_b'] == $team_id && $match['score_team_b'] > $match['score_team_b']))
+        {
+            return 'win';
+        }else
+        {
+            return 'lose';
+        }
     }
 
     public function GetMatchCollection()
@@ -90,7 +102,6 @@ class MatchCollection
         $teams = new TeamCollection($this->db);
         foreach ($this->GetMatchCollection() as $match)
         {
-            //teamid || teamidb
             if (($match['team_id_a'] == $team_id || $match['team_id_b'] == $team_id) && ($match['score_team_a'] != NULL || $match['score_team_b'] != NULL) && $match['start_time'] != NULL)
             {
                 $match['team_a'] = $teams->GetTeamById($match['team_id_a'])['name'];
@@ -98,7 +109,7 @@ class MatchCollection
                 array_push($arr_team_match, $match);
             }
         }
-        return$arr_team_match;
+        return $arr_team_match;
     }
 }
 
