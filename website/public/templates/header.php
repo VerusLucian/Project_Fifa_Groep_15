@@ -14,34 +14,25 @@
             <nav>
                 <h1><a href="index.php">FIFA</a></h1>
                 <?php
-                if(!isset($_SESSION['logged_in']))
-                {
+                function loggedIn(){
+                    if (isset($_SESSION ['logged_in'] ) && $_SESSION ['logged_in'] == true)
+                    {
+                        return true;
+                    }
+                    return false;
                 }
-                else
+                if (LoggedIn() == true)
                 {
-                    if ($_SESSION['logged_in'] == false)
-                    {
-                    }
-                    else
-                    {
-                        echo '<a href="teams.php">Teams aanmaken</a>';
-                    }
+                    echo '<a href="teams.php">Teams aanmaken</a>';
                 }
 
-                if(!isset($_SESSION['logged_in']))
+
+                if (LoggedIn() == true)
                 {
-                    echo '<a href="login.php">Login</a>';
+                    echo '<a href="../php/logout.php">Logout</a>';
                 }
-                else
-                {
-                    if ($_SESSION['logged_in'] == false)
-                    {
-                        echo '<a href="login.php">Login</a>';
-                    }
-                    else
-                    {
-                        echo '<a href="../php/logout.php">Logout</a>';
-                    }
+                else {
+                    echo '<a href="login.php">Login</a>';
                 }
                 ?>
             </nav>
