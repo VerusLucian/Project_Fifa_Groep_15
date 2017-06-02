@@ -82,7 +82,7 @@ class MatchCollection
         {
             return 'draw';
         }
-        elseif(($match['team_id_a'] == $team_id && $match['score_team_a'] > $match['score_team_b']) || ($match['team_id_b'] == $team_id && $match['score_team_b'] > $match['score_team_b']))
+        elseif(($match['team_id_a'] == $team_id && $match['score_team_a'] > $match['score_team_b']) || ($match['team_id_b'] == $team_id && $match['score_team_b'] > $match['score_team_a']))
         {
             return 'win';
         }else
