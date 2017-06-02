@@ -12,19 +12,15 @@
     <header>
         <div class="container">
             <nav>
-                <h1><a href="index.php">Fifa Dev Edition</a></h1>
+                <h1><a href="index.php">FIFA</a></h1>
                 <?php
                 if(!isset($_SESSION['logged_in']))
                 {
-                    $message = "<span style='color: red'>Om teams aan te kunnen maken moet je ingelogt zijn</span>";
-                    echo "<a href='login.php?message=$message'>Teams aanmaken</a>";
                 }
                 else
                 {
                     if ($_SESSION['logged_in'] == false)
                     {
-                        $message = "<span style='color: red'>Om teams aan te kunnen maken moet je inlogt zijn</span>";
-                        echo "<a href='login.php?message=$message'>Teams aanmaken</a>";
                     }
                     else
                     {
