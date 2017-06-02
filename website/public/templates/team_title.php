@@ -27,9 +27,9 @@ else {
         <p> <?php echo $arr_team['description'];?></p>
     </div>
     <div class="results">
-        <p>W:<?php echo $arr_team['win']; ?></p>
-        <p>V:<?php echo $arr_team['lose']; ?></p>
-        <p>G:<?php echo $arr_team['draw']; ?></p>
+        <p style="color: #15a768">W:<?php echo $arr_team['win']; ?></p>
+        <p style="color: #ff0000">V:<?php echo $arr_team['lose']; ?></p>
+        <p style="color: #ffd700">G:<?php echo $arr_team['draw']; ?></p>
         <p>P:<?php echo $arr_team['score']; ?></p>
     </div>
 </div>
