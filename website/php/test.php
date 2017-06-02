@@ -21,4 +21,4 @@ $finaltabel = new FinalTabel($db);
 //
 //fclose($fp);
 
-var_dump($machs->MatchCollectionEndedByTeamId(4));
+$machs->UpdateMatchTimes('09:00:00', '00:15:00', '2');
