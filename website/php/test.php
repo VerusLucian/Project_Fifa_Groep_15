@@ -8,8 +8,11 @@ $timeTabel = new Timetabel($db);
 $machs = new MatchCollection($db);
 $finaltabel = new FinalTabel($db);
 $login = new Login($db);
+$user = new User($db);
 
-var_dump($login->IsUserAdmin());
+var_dump($user->UserHaveTeam($_SESSION['user']['id']));
+
+var_dump($_SESSION);
 
 
 

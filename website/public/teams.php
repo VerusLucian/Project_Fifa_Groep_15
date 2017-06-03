@@ -9,7 +9,6 @@ $final = new FinalTabel($db);
     <div class="main-content">
         <?php
             include 'templates/teams-toevoegen.php';
-            include 'templates/players-toevoegen.php';
         ?>
     </div>
 

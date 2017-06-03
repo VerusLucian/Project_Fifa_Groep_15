@@ -1,4 +1,16 @@
 <?php
+$match = new MatchCollection($db);
+if (isset($_GET['team_id']))
+{
+    $team_id = $_GET['team_id'];
+    $arr_matches = $match->MatchCollectionEndedByTeamId($team_id);
+}
+elseif(isset($_SESSION['team']))
+{
+    $team_id = $_SESSION['team']['id'];
+    $arr_matches = $match->MatchCollectionEndedByTeamId($team_id);
+}
+
 
 ?>
 <div class="container">
@@ -14,8 +26,8 @@
         </thead>
         <tbody>
         <?php
-        $match = new MatchCollection($db);
-        $arr_matches = $match->MatchCollectionEndedByTeamId($team_id);
+
+
 
         foreach ($arr_matches as $item)
         {

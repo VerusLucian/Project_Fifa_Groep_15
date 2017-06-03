@@ -1,11 +1,9 @@
 <?php
 session_start();
 require(realpath(__DIR__) . '/templates/header.php');
-$final = new FinalTabel($db);
+
 ?>
 
-
-    <div class="main-content">
 
         <?php
         include 'templates/dropdowntable.php';
@@ -16,6 +14,6 @@ $final = new FinalTabel($db);
 
 
 
-    </div>
+
 
 <?php require(realpath(__DIR__) . '/templates/footer.php'); ?>

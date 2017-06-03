@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../../php/init.php';
-$Login = new Login($db);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,13 +17,21 @@ $Login = new Login($db);
             <nav>
                 <h1><a href="index.php">FIFA</a></h1>
                 <?php
+                $Login = new Login($db);
+                $User = new User($db);
                 if ($Login->isLoggedIn() == true)
                 {
                     if ($Login->IsUserAdmin())
                     {
-                        echo '<a href="#">Admin Panel</a>';
+                        echo '<a href="adminpanel.php">Admin Panel</a>';
                     }
-                    echo '<a href="teams.php">Teams aanmaken</a>';
+                    if ($User->UserHaveTeam($_SESSION['user']['id']))
+                    {
+                        echo '<a href="teamsmenager.php">Team menager</a>';
+                    }
+                    else{
+                        echo '<a href="teams.php">Team aanmaken</a>';
+                    }
                     echo '<a href="../php/logout.php">Logout</a>';
                 }
                 else {
@@ -35,10 +43,16 @@ $Login = new Login($db);
     </header>
 
     <?php
+    $mode = "";
+    if (isset($_GET['mode']))
+    {
+        $mode = $_GET['mode'];
+    }
     if (isset($_GET['message'])) {
-        echo '<section class="error">
+        echo '<section class="error '.$mode.'">
         <p>'.$_GET['message'] .'</p>
     </section>';
     }
     ?>
     <div class="container">
+        <div class="main-content">

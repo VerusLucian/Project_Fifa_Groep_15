@@ -1,15 +1,12 @@
 <?php
-
+session_start();
 require("init.php");
 $teamCollection = new TeamCollection($db);
 
 $teamname = $_GET['teamname'];
 $teamimg = $_GET['teamimg'];
 $teamdesc = $_GET['teamdesc'];
-$memberid = 1;
-
-
-$id = $_SESSION['id'];
+$memberid = $_SESSION['user']['id'];
 
 if (empty($teamimg))
 {
@@ -20,9 +17,10 @@ if (!empty($teamname) && !empty($teamimg) && !empty($teamdesc))
 {
 
     $teamCollection->AddTeam($teamname, $teamimg, $teamdesc, $memberid);
+    $_SESSION['HaveTeam'] = true;
 
     $message = "Team succesvol toegevoegd!";
-    header("Location: ../public/teams.php?message=$message");
+    header("Location: ../public/teams.php?message=$message&mode=msg");
 }
 else
 {

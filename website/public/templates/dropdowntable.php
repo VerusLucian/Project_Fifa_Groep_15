@@ -1,4 +1,5 @@
 <?php
+    $final = new FinalTabel($db);
     $pule_a = $final->GetLeadTeamsByPoulId('1');
     $pule_b = $final->GetLeadTeamsByPoulId('2');
     $pule_c = $final->GetLeadTeamsByPoulId('3');

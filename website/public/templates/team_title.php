@@ -1,22 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: waela
- * Date: 6/1/2017
- * Time: 9:23 AM
- */
-
-
+$team = new TeamCollection($db);
 if (isset($_GET['team_id']))
 {
     $team_id = $_GET['team_id'];
     $arr_team = $team->GetTeamById($team_id);
-
 }
-else {
-    //header
+elseif(isset($_SESSION['team']))
+{
+    $team_id = $_SESSION['team']['id'];
+    $arr_team = $team->GetTeamById($team_id);
 }
-
 ?>
 <div class="title">
     <div class="logo">

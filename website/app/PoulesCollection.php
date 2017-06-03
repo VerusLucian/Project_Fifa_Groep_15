@@ -24,19 +24,11 @@ class PoulesCollection
         return $this;
     }
 
-    public function GetLeadTeamsByPoulId()
+    public function NumberOfTeamsInPoulById($poule_id)
     {
-        $team = new TeamCollection($this->db);
-
-        $team->GetTeams();
-
-        return $team->GetTeams();
-    }
-
-    public function TeamCollectionByPoulId()
-    {
-        $teams = new TeamCollection($this->db);
-        return $teams->GetTeamByPuleId($this->temp['id']);
+        $teamCollection = new TeamCollection($this->db);
+        $arr_teams = $teamCollection->GetTeamByPuleId($poule_id);
+        return count($arr_teams);
     }
 
     public function GetPuleId()

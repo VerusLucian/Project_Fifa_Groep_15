@@ -9,7 +9,7 @@ html,body{
 }
 
 .main-content{
-	min-height: 100vh;
+	min-height: 90vh;
 }
 .btn-success{
     background-color: #15a768;
@@ -84,6 +84,11 @@ header h1 a:hover{
 	border-bottom: 2px #ff2b2b solid;
 	/*border-right: 2px #ff2b2b solid;*/
 	/*border-left: 2px #ff2b2b solid;*/
+}
+
+.msg{
+	border-bottom: 2px #007001 solid;
+	background: #30b238;
 }
 .error p{
 	margin: 0;
