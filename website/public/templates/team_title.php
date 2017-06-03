@@ -10,10 +10,24 @@ elseif(isset($_SESSION['team']))
     $team_id = $_SESSION['team']['id'];
     $arr_team = $team->GetTeamById($team_id);
 }
+
+$user = new User($db);
+$owner = $User->IsOwnerOfTeam($team_id, $_SESSION['user']['id']);
+
 ?>
 <div class="title">
     <div class="logo">
         <img src=" <?php echo $arr_team['img']; ?>" alt="" height="200px" width="200px">
+        <?php
+            if ($owner)
+            {
+                if ($owner)
+                {
+                    echo '<br>';
+                    echo '<a href="../php/team-delete.php?team_id='.$arr_team['id'].'">DELET</a>';
+                }
+            }
+        ?>
     </div>
     <div class="head">
         <h1><?php echo $arr_team['name']; ?></h1>

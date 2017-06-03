@@ -6,6 +6,7 @@ if ($_SESSION['team']['id'] == $_GET['team_id'])
     header('location:teamsmenager.php');
 }
 
+
 require_once '../php/init.php';
 
 require(realpath(__DIR__) . '/templates/header.php');

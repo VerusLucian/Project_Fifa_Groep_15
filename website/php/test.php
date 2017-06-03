@@ -10,9 +10,7 @@ $finaltabel = new FinalTabel($db);
 $login = new Login($db);
 $user = new User($db);
 
-var_dump($user->UserHaveTeam($_SESSION['user']['id']));
-
-var_dump($_SESSION);
+$playerCollection->DeletePlayersByTeamId(1);
 
 
 

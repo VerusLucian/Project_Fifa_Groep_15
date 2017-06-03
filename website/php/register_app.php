@@ -18,7 +18,7 @@ if (!empty($email) && !empty($passwordraw) && !empty($name) && !empty($lastname)
                     if (!$register->CheckOfAcountExist()) {
                             $register->Register();
                             $message = 'You are succesfully registed!';
-                            header("Location: ../public/login.php?message=$message");
+                            header("Location: ../public/login.php?message=$message&mode=msg");
                     } else {
                         $message = "<span>Gebruiker bestaat al!</span>";
                         header("Location: ../public/login.php?message=$message");

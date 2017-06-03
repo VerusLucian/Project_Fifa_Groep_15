@@ -21,7 +21,7 @@ require_once __DIR__ . '/../../php/init.php';
                 $User = new User($db);
                 if ($Login->isLoggedIn() == true)
                 {
-                    if ($Login->IsUserAdmin())
+                    if ($User->IsUserAdmin())
                     {
                         echo '<a href="adminpanel.php">Admin Panel</a>';
                     }

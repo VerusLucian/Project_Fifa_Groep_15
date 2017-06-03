@@ -8,7 +8,7 @@ class PoulesCollection
     public function __construct($db)
     {
         $this->db = $db;
-        $sql = "SELECT * FROM `tbl_poules`";
+        $sql = "SELECT * FROM `tbl_poules` WHERE `deleted_at` IS NULL";
         $this->poules = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 

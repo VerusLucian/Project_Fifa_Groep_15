@@ -15,7 +15,7 @@ class TeamCollection
     private function GetTeamsFromDb()
     {
 
-        $sql        = "SELECT * FROM `tbl_teams`";
+        $sql        = "SELECT * FROM `tbl_teams` WHERE `deleted_at` IS NULL";
         $teams      = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         $arr_teams  = array();
 
@@ -118,5 +118,12 @@ class TeamCollection
         $sql = "INSERT INTO `project_fifa`.`tbl_teams` (`id`, `poule_id`, `name`, `img`, `description`, `created_by`, `created_at`, `deleted_at`) VALUES (NULL, NULL , :teamname, :img, :description, :memberid, CURRENT_TIMESTAMP, NULL);";
         $stmt = $this->db->prepare($sql);
         $stmt->execute(array(':teamname' => $team_name, ':img' => $img, ':description' => $description, ':memberid' => $memberid));
+    }
+
+    public function DeleteTeamById($team_id)
+    {
+        $sql = "UPDATE `tbl_teams` SET `deleted_at` = CURRENT_TIMESTAMP WHERE `id` = :id;";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array('id' => $team_id));
     }
 }

@@ -51,23 +51,4 @@ class Login
         session_destroy();
     }
 
-    public function IsUserAdmin()
-    {
-        if (!isset($_SESSION['user']))
-        {
-            return false;
-        }
-        $sql = "SELECT * FROM `tbl_admins` WHERE `id_user` = :user_id";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute(array('user_id' => $_SESSION['user']['id']));
-
-        if ($stmt->rowCount() == 1)
-        {
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
 }
