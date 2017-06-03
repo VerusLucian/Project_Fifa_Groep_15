@@ -1,11 +1,11 @@
 <?php
 require_once 'init.php';
 
-$name = $_GET['name'];
-$lastname = $_GET['lastname'];
-$email = $_GET['email'];
-$passwordraw = $_GET['password'];
-$passwordconfirmraw = $_GET['passwordconfirm'];
+$name = $_POST['name'];
+$lastname = $_POST['lastname'];
+$email = $_POST['email'];
+$passwordraw = $_POST['password'];
+$passwordconfirmraw = $_POST['passwordconfirm'];
 
 if (!empty($email) && !empty($passwordraw) && !empty($name) && !empty($lastname))
 {
@@ -20,27 +20,27 @@ if (!empty($email) && !empty($passwordraw) && !empty($name) && !empty($lastname)
                             $message = 'You are succesfully registed!';
                             header("Location: ../public/login.php?message=$message");
                     } else {
-                        $message = "<span style='color: red'>Gebruiker bestaat al!</span>";
+                        $message = "<span>Gebruiker bestaat al!</span>";
                         header("Location: ../public/login.php?message=$message");
                     }
                 } else {
-                    $message = "<span style='color: red'>Password did not match!</span>";
+                    $message = "<span>Password did not match!</span>";
                     header("Location: ../public/register.php?message=$message");
                 }
             } else{
-                $message = "<span style='color: red'>Password is not valid!</span>";
+                $message = "<span>Password is not valid!</span>";
                 header("Location: ../public/login.php?message=$message");
             }
         } else {
-            $message = "<span style='color: red'>Lastname/Name is niet geldig!</span>";
+            $message = "<span>Lastname/Name is niet geldig!</span>";
             header("Location: ../public/register.php?message=$message");
             exit();
         }
     } else {
-        $message = "<span style='color: red'>Email is not valid!</span>";
+        $message = "<span>Email is not valid!</span>";
         header("Location: ../public/login.php?message=$message");
     }
 }else{
-    $message = "<span style='color: red'>Missing required data!</span>";
+    $message = "<span>Missing required data!</span>";
     header("Location: ../public/login.php?message=$message");
 }

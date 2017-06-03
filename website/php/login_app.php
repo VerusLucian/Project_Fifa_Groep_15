@@ -4,8 +4,8 @@ session_start();
 require_once 'init.php';
 $Login = new Login($db);
 
-$email       = $_GET['email'];
-$password    = $_GET['password'];
+$email       = $_POST['email'];
+$password    = $_POST['password'];
 
 if(!empty($email) && !empty($password))
 {
@@ -17,18 +17,18 @@ if(!empty($email) && !empty($password))
         }
         else
         {
-            $message = "<span style='color: red'>De gegeven data kwam niet overeen!</span>";
+            $message = "<span>De gegeven data kwam niet overeen!</span>";
             header("Location: ../public/login.php?message=$message");
         }
     }
     else
     {
-        $message = "<span style='color: red'>Email is niet geldig!</span>";
+        $message = "<span>Email is niet geldig!</span>";
         header("Location: ../public/login.php?message=$message");
     }
 }
 else
 {
-    $message = "<span style='color: red'>Geen email en/of wachtwoord meegegeven!</span>";
+    $message = "<span>Geen email en/of wachtwoord meegegeven!</span>";
     header("Location: ../public/login.php?message=$message");
 }

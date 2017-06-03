@@ -120,4 +120,3 @@ class TeamCollection
         $stmt->execute(array(':teamname' => $team_name, ':img' => $img, ':description' => $description, ':memberid' => $memberid));
     }
 }
-

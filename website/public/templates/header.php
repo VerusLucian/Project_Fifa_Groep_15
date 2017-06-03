@@ -33,4 +33,12 @@ $Login = new Login($db);
             </nav>
         </div>
     </header>
+
+    <?php
+    if (isset($_GET['message'])) {
+        echo '<section class="error">
+        <p>'.$_GET['message'] .'</p>
+    </section>';
+    }
+    ?>
     <div class="container">
