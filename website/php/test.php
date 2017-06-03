@@ -7,6 +7,8 @@ $playerCollection = new PlayerCollection($db);
 $timeTabel = new Timetabel($db);
 $machs = new MatchCollection($db);
 $finaltabel = new FinalTabel($db);
+$login = new Login($db);
+var_dump($login->login('lukasz5015@o2.pl', 'Qwerty1234'));
 
 
 
@@ -21,4 +23,4 @@ $finaltabel = new FinalTabel($db);
 //
 //fclose($fp);
 
-$machs->UpdateMatchTimes('09:00:00', '00:15:00', '2');
+//$machs->UpdateMatchTimes('09:00:00', '00:15:00', '2');

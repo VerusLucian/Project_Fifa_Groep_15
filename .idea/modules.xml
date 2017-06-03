@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Project_Fifa_Groep_15.iml" filepath="$PROJECT_DIR$/.idea/Project_Fifa_Groep_15.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../risa_rekrutacja/.idea/risa_rekrutacja.iml" filepath="$PROJECT_DIR$/../risa_rekrutacja/.idea/risa_rekrutacja.iml" />
     </modules>
   </component>
 </project>

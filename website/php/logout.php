@@ -1,9 +1,7 @@
 <?php
-require('../php/database.php');
 session_start();
-
-$_SESSION['logged_in'] = false;
-
+require_once 'init.php';
+$Login = new Login($db);
+$Login->logout();
 echo "<span style='color: red'>logging out failed</span>";
-
 header("Location: ../public/index.php?message=$message");

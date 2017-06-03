@@ -1,14 +1,11 @@
 <?php
 session_start();
-
 require_once '../php/init.php';
 if (isset($_GET['team_id']))
 {
     $players = new PlayerCollection($db);
     $team = new TeamCollection($db);
     $team_id = $_GET['team_id'];
-
-
 }
 else {
 //header

@@ -1,4 +1,7 @@
-<!--This header is just a suggestion. Do whatever you want with it!-->
+<?php
+require_once __DIR__ . '/../../php/init.php';
+$Login = new Login($db);
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,21 +17,9 @@
             <nav>
                 <h1><a href="index.php">FIFA</a></h1>
                 <?php
-                function loggedIn(){
-                    if (isset($_SESSION ['logged_in'] ) && $_SESSION ['logged_in'] == true)
-                    {
-                        return true;
-                    }
-                    return false;
-                }
-                if (LoggedIn() == true)
+                if ($Login->isLoggedIn() == true)
                 {
                     echo '<a href="teams.php">Teams aanmaken</a>';
-                }
-
-
-                if (LoggedIn() == true)
-                {
                     echo '<a href="../php/logout.php">Logout</a>';
                 }
                 else {
