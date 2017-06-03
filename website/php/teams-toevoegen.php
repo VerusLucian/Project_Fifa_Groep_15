@@ -16,11 +16,19 @@ if (empty($teamimg))
 if (!empty($teamname) && !empty($teamimg) && !empty($teamdesc))
 {
 
-    $teamCollection->AddTeam($teamname, $teamimg, $teamdesc, $memberid);
-    $_SESSION['HaveTeam'] = true;
+    if ($teamCollection->NumberOfTeams() < 14)
+    {
+        $teamCollection->AddTeam($teamname, $teamimg, $teamdesc, $memberid);
+        $_SESSION['HaveTeam'] = true;
 
-    $message = "Team succesvol toegevoegd!";
-    header("Location: ../public/teams.php?message=$message&mode=msg");
+        $message = "Team succesvol toegevoegd!";
+        header("Location: ../public/teams.php?message=$message&mode=msg");
+    }
+    else{
+        $message = "Maximale aantal teams bestaat all";
+        header("Location: ../public/teams.php?message=$message");
+    }
+
 }
 else
 {

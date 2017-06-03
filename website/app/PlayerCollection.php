@@ -26,6 +26,19 @@ class PlayerCollection
         return $players;
     }
 
+    public function isPlayerInTeam($player_id, $team_id)
+    {
+        $arr_players = $this->GetPlayerCollectionByTeamId($team_id);
+        foreach ($arr_players as $player)
+        {
+            if ($player['id'] == $player_id)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function GetPlayerCollection()
     {
         return $this->players;
@@ -51,6 +64,11 @@ class PlayerCollection
         {
             $this->DeletePlayerById($plaeyr['id']);
         }
+    }
+
+    public function NummberOfPlayers($team_id)
+    {
+        return count($this->GetPlayerCollectionByTeamId($team_id));
     }
 
 }

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION['team']['id'] == $_GET['team_id'])
+if ($_SESSION['team'] == $_GET['team_id'])
 {
     header('location:teamsmenager.php');
 }

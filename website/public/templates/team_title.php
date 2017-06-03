@@ -7,12 +7,12 @@ if (isset($_GET['team_id']))
 }
 elseif(isset($_SESSION['team']))
 {
-    $team_id = $_SESSION['team']['id'];
+    $team_id = $_SESSION['team'];
     $arr_team = $team->GetTeamById($team_id);
 }
 
 $user = new User($db);
-$owner = $User->IsOwnerOfTeam($team_id, $_SESSION['user']['id']);
+$owner = $User->IsOwnerOfATeam($team_id, $_SESSION['user']['id']);
 
 ?>
 <div class="title">

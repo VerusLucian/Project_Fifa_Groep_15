@@ -16,13 +16,14 @@ class User
 
         if ($stmt->rowCount() == 1)
         {
-            $_SESSION['team'] = $stmt->fetch(PDO::FETCH_ASSOC);
+            $arr_team = $stmt->fetch(PDO::FETCH_ASSOC);
+            $_SESSION['team'] =  $arr_team['id'];
             return true;
         }
             return false;
     }
 
-    public function IsOwnerOfTeam($team_id, $user_id)
+    public function IsOwnerOfATeam($team_id, $user_id)
     {
         $user = new User($this->db);
         if ($user->IsUserAdmin())

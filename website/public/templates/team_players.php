@@ -7,11 +7,11 @@ if (isset($_GET['team_id']))
 }
 elseif(isset($_SESSION['team']))
 {
-    $team_id = $_SESSION['team']['id'];
+    $team_id = $_SESSION['team'];
 }
 $arr_players = $players->GetPlayerCollectionByTeamId($team_id);
 
-$owner = $User->IsOwnerOfTeam($team_id, $_SESSION['user']['id']);
+$owner = $User->IsOwnerOfATeam($team_id, $_SESSION['user']['id']);
 
 ?>
     <div class="team_players">
@@ -24,7 +24,7 @@ $owner = $User->IsOwnerOfTeam($team_id, $_SESSION['user']['id']);
                 echo "<p>".$player['student_id']. "</p>";
                 if ($owner)
                 {
-                    echo '<a href="#">DELET</a>';
+                    echo '<a href="../php/player_delete.php?player_id='.$player['id'].'&team_id='.$_SESSION['team'].'">DELET</a>';
                 }
                 echo "</div>";
             }

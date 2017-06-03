@@ -113,6 +113,11 @@ class TeamCollection
         return $arr_socre;
     }
 
+    public function NumberOfTeams()
+    {
+        return count($this->GetTeams());
+    }
+
     public function AddTeam($team_name, $img,$description, $memberid)
     {
         $sql = "INSERT INTO `project_fifa`.`tbl_teams` (`id`, `poule_id`, `name`, `img`, `description`, `created_by`, `created_at`, `deleted_at`) VALUES (NULL, NULL , :teamname, :img, :description, :memberid, CURRENT_TIMESTAMP, NULL);";

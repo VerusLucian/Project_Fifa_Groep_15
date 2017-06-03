@@ -7,7 +7,7 @@ if (isset($_GET['team_id']))
 }
 elseif(isset($_SESSION['team']))
 {
-    $team_id = $_SESSION['team']['id'];
+    $team_id = $_SESSION['team'];
     $arr_matches = $match->MatchCollectionEndedByTeamId($team_id);
 }
 
