@@ -4,7 +4,7 @@ session_start();
 require_once 'init.php';
 $Login = new Login($db);
 
-$email          = $_GET['email'];
+$email       = $_GET['email'];
 $password    = $_GET['password'];
 
 if(!empty($email) && !empty($password))

@@ -19,6 +19,10 @@ $Login = new Login($db);
                 <?php
                 if ($Login->isLoggedIn() == true)
                 {
+                    if ($Login->IsUserAdmin())
+                    {
+                        echo '<a href="#">Admin Panel</a>';
+                    }
                     echo '<a href="teams.php">Teams aanmaken</a>';
                     echo '<a href="../php/logout.php">Logout</a>';
                 }

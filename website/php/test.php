@@ -1,6 +1,6 @@
 <?php
 require('init.php');
-
+session_start();
 $teams = new TeamCollection($db);
 $poule = new PoulesCollection($db);
 $playerCollection = new PlayerCollection($db);
@@ -8,7 +8,12 @@ $timeTabel = new Timetabel($db);
 $machs = new MatchCollection($db);
 $finaltabel = new FinalTabel($db);
 $login = new Login($db);
-var_dump($login->login('lukasz5015@o2.pl', 'Qwerty1234'));
+
+var_dump($login->IsUserAdmin());
+
+
+
+
 
 
 
