@@ -9,3 +9,5 @@ if (isset($_GET['team_id']) && ($User->IsUserAdmin() || $User->IsOwnerOfATeam($_
     $Team->DeleteTeamById($_GET['team_id']);
     $Players->DeletePlayersByTeamId($_GET['team_id']);
 }
+
+header("Location: ../website/team.php");

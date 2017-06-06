@@ -14,5 +14,6 @@ if (isset($_GET['player_id']) && isset($_GET['team_id']) && ($User->IsUserAdmin(
             $Team->DeleteTeamFromPoul($_GET['team_id']);
         }
     }
-
 }
+
+header("Location: ../website/team.php");

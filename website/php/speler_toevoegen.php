@@ -32,3 +32,5 @@ if (isset($_POST['team_id']) && isset($_POST['player_name']) && isset($_POST['pl
 else{
     echo "header";
 }
+
+header("Location: ../website/team.php");
