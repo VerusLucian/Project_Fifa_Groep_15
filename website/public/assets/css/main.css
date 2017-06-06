@@ -15,7 +15,7 @@ html,body{
     background-color: #15a768;
     border-color: #15a768;
 }
-*, .score *, header *{
+.score *{
     margin: 0px;
     padding: 0px;
     list-style: none;
@@ -23,56 +23,9 @@ html,body{
 
 /*Header*/
 
-header, footer{
-	background: #3c3c3c;
-	width: 100%;
+.navbar{
+	margin-bottom: 0;
 }
-
-header .container nav{
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin: 5px 0px;
-}
-
-header h1{
-	color: #15a768;
-	font-weight: bold;
-	font-size: 38px;
-}
-
-header a, header a:focus{
-	color: #15a768;
-	font-weight: bold;
-	font-size: 24px;
-	text-decoration: none;
-}
-
-header a:hover{
-	color: #0e7c4d;
-	font-weight: bold;
-	font-size: 24px;
-	text-decoration: none;
-}
-
-header h1 a, header h1 a:focus{
-	color: #15a768;
-	font-weight: bold;
-	text-decoration: none;
-	font-size: 38px;
-}
-
-header h1 a:hover{
-	color: #0e7c4d;
-	font-weight: bold;
-	text-decoration: none;
-	font-size: 38px;
-}
-
 .error{
 	height: 30px;
 	display: flex;
@@ -86,46 +39,24 @@ header h1 a:hover{
 	/*border-left: 2px #ff2b2b solid;*/
 }
 
-.msg{
-	border-bottom: 2px #007001 solid;
-	background: #30b238;
-}
-.error p{
-	margin: 0;
-	font-size: 1.2em;
+.alert p{
+	text-align: center;
 }
 
 /*Table*/
 
-.container .dropdown .col-md-2{
-	height: 50px;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.container .dropdown .col-md-2 h2{
-	margin: 0px;
+.dropdowntable{
 	text-align: center;
-	font-weight: bold;
-	color: #15a768;
 }
 
-.container .dropdown .col-md-2 p{
-	margin: 0px;
-}
-
-.container .dropdown{
+.dropdowntable{
 	background: #f3f4f5;
-	padding: 50px;
+	box-sizing: border-box;
+	padding: 20px 10px 20px 10px;
 	border-radius: 10px;
 }
 
-.container .dropdown p{
+.dropdowntable p{
 	background: #fff;
 	border: 1px solid #3c3c3c;
 	border-radius: 10px;
@@ -133,33 +64,9 @@ header h1 a:hover{
 }
 
 /*Score*/
-
-.score ul{
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 0px;
-}
-
-.score h3{
+.score{
     color: #15a768;
     font-weight: bold;
-}
-
-.score .item{
-    width: 500px;
-    background: #f3f4f5;
-    border-radius: 10px;
-    padding: 10px;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    flex-direction: column;
 }
 
 /*Teams-toevoegen*/
@@ -239,18 +146,45 @@ div.team_players{
 	height: 250px;
 }
 
-/*Footer*/
 
-footer{
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	justify-content: center;
+/*BOOTSRAP EDIT*/
+.navbar-text{
+	margin-bottom: 0;
 }
 
-footer p{
-	color: lightgrey;
-	margin: 10px 0px;
+.alert{
+	padding: 8px;
+}
+#pswd_info h4{
+	background: black none repeat scroll 0 0;
+	display: block;
+	font-size: 14px;
+	letter-spacing: 0;
+	padding: 5px 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+#pswd_info ul {
+	padding: 0;
+	list-style: none;
+}
+#pswd_info ul li {
+	padding: 10px 45px;
+}
+
+.valid {
+	background: rgba(0, 0, 0, 0) url("https://s19.postimg.org/vq43s2wib/valid.png") no-repeat scroll 2px 6px;
+	color: green;
+	line-height: 21px;
+	padding-left: 22px;
+}
+
+.invalid {
+	background: rgba(0, 0, 0, 0) url("https://s19.postimg.org/olmaj1p8z/invalid.png") no-repeat scroll 2px 6px;
+	color: red;
+	line-height: 21px;
+	padding-left: 22px;
+}
+#pswd_info{
+	display: none;
 }

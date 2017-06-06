@@ -17,8 +17,8 @@
         foreach ($arr_timetabel as $item)
         {
             echo '<tr>';
-            echo "<td>" .$item['team_a']."</td>";
-            echo "<td>" .$item['team_b']."</td>";
+            echo "<td><a href='team_info.php?team_id=".$item['team_id_a']."'>" .$item['team_a']."</a></td>";
+            echo "<td><a href='team_info.php?team_id=".$item['team_id_b']."'>" .$item['team_b']."</a></td>";
             echo "<td>" .$item['time']."</td>";
             echo '</tr>';
         }

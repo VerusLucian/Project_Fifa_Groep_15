@@ -13,7 +13,7 @@ if(!empty($email) && !empty($password))
     {
         if ($Login->login($email, $password)) {
             $message = "U bent succesvol ingelogd!";
-            header("Location: ../public/index.php?message=$message&mode=msg");
+            header("Location: ../public/index.php?message=$message&mode=success");
         }
         else
         {

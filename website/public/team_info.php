@@ -1,10 +1,14 @@
 <?php
 session_start();
 
-if ($_SESSION['team'] == $_GET['team_id'])
+if (isset($_SESSION['team']))
 {
-    header('location:teamsmenager.php');
+    if ($_SESSION['team'] == $_GET['team_id'])
+    {
+        header('location:teamsmenager.php');
+    }
 }
+
 
 
 require_once '../php/init.php';

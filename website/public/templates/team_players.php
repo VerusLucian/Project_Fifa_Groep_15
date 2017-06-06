@@ -11,7 +11,11 @@ elseif(isset($_SESSION['team']))
 }
 $arr_players = $players->GetPlayerCollectionByTeamId($team_id);
 
-$owner = $User->IsOwnerOfATeam($team_id, $_SESSION['user']['id']);
+$owner = NULL;
+if (isset($_SESSION['user']))
+{
+    $owner = $User->IsOwnerOfATeam($team_id, $_SESSION['user']['id']);
+}
 
 ?>
     <div class="team_players">

@@ -12,7 +12,14 @@ elseif(isset($_SESSION['team']))
 }
 
 $user = new User($db);
-$owner = $User->IsOwnerOfATeam($team_id, $_SESSION['user']['id']);
+
+$owner = NULL;
+
+if  (isset($_SESSION['user']))
+{
+    $owner = $User->IsOwnerOfATeam($team_id, $_SESSION['user']['id']);
+}
+
 
 ?>
 <div class="title">
@@ -21,11 +28,8 @@ $owner = $User->IsOwnerOfATeam($team_id, $_SESSION['user']['id']);
         <?php
             if ($owner)
             {
-                if ($owner)
-                {
-                    echo '<br>';
-                    echo '<a href="../php/team-delete.php?team_id='.$arr_team['id'].'">DELETE</a>';
-                }
+                echo '<br>';
+                echo '<a href="../php/team-delete.php?team_id='.$arr_team['id'].'">DELETE</a>';
             }
         ?>
     </div>

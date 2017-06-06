@@ -36,8 +36,8 @@ $final = new FinalTabel($db);
                 <input type="email" name="email" id="email" class="form-control" placeholder="example@example.nl" required>
             </div>
             <div class="form-group">
-                <label for="password">Wachtwoord:</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Wachtwoord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" required>
+                <label for="paw">Wachtwoord:</label>
+                <input type="password" name="password" id="paw" class="form-control" placeholder="Wachtwoord" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{7,}" required>
             </div>
             <div class="form-group">
                 <label for="passwordconfirm">Bevestig wachtwoord:</label>
@@ -46,6 +46,17 @@ $final = new FinalTabel($db);
             <div class="form-group">
                 <input type="submit" value="Register" class="btn btn-success">
             </div>
+            <div class="aro-pswd_info">
+                <div id="pswd_info">
+                    <ul>
+                        <li id="letter" class="invalid">At least <strong>one letter</strong></li>
+                        <li id="capital" class="invalid">At least <strong>one capital letter</strong></li>
+                        <li id="number" class="invalid">At least <strong>one number</strong></li>
+                        <li id="length" class="invalid">Be at least <strong>8 characters</strong></li>
+                    </ul>
+                </div>
+            </div>
         </form>
     </div>
+    <script src="js/password_validatie.js"></script>
 <?php require(realpath(__DIR__) . '/templates/footer.php'); ?>

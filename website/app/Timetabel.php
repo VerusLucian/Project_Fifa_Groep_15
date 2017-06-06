@@ -28,7 +28,10 @@ class Timetabel
                 $temp_arr_timetabel = [
                     'team_a'    =>   $TeamA['name'],
                     'team_b'    =>   $TeamB['name'],
-                    'time'      =>   substr($match['start_time'],0,5)
+                    'time'      =>   substr($match['start_time'],0,5),
+                    'team_id_a' =>   $TeamA['id'],
+                    'team_id_b' =>   $TeamB['id']
+
                 ];
 
                 array_push($arr_timetabel, $temp_arr_timetabel);
