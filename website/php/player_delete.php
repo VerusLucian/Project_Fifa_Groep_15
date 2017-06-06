@@ -9,6 +9,10 @@ if (isset($_GET['player_id']) && isset($_GET['team_id']) && ($User->IsUserAdmin(
     if ($Players->isPlayerInTeam($_GET['player_id'], $_GET['team_id']))
     {
         $Players->DeletePlayerById($_GET['player_id']);
+        if ($Players->NummberOfPlayersByTeamId($_GET['team_id']) <= 3)
+        {
+            $Team->DeleteTeamFromPoul($_GET['team_id']);
+        }
     }
 
 }

@@ -11,7 +11,7 @@ $Player = new PlayerCollection($db);
 
 <?php
 include_once 'templates/team_title.php';
-if ($Player->NummberOfPlayers($_SESSION['team']) <= 4)
+if ($Player->NummberOfPlayersByTeamId($_SESSION['team']) <= 4)
 {
     include_once 'templates/players-toevoegen.php';
 }

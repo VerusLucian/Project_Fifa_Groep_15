@@ -131,4 +131,43 @@ class TeamCollection
         $stmt = $this->db->prepare($sql);
         $stmt->execute(array('id' => $team_id));
     }
+
+    public function DeleteTeamFromPoul($team_id)
+    {
+        $sql = "UPDATE `tbl_teams` SET `poule_id` = NULL WHERE `id` = $team_id;";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+    }
+
+    public function SetTeamInPoul($team_id)
+    {
+        $PoulesCollection = new PoulesCollection($this->db);
+
+        $arr_poules = array();
+
+        foreach ($PoulesCollection->GetPoules() as $poule)
+        {
+            $arr_poule = array('id' => $poule['id'], 'teamscount' => $PoulesCollection->NumberOfTeamsInPoulById($poule['id']));
+            array_push($arr_poules, $arr_poule);
+        }
+        $min = array_reduce($arr_poules, function($result, $item)
+        {
+
+            if (!isset($result))
+            {
+                $result = $item;
+            }
+            if ($result['teamscount'] > $item['teamscount'])
+            {
+                $result = $item;
+            }
+            return $result;
+        });
+
+
+        $sql = "UPDATE tbl_teams SET `poule_id` = :minn WHERE `id` = :team_iddd";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array('minn' => $min['id'], 'team_iddd' => $team_id));
+    }
+
 }

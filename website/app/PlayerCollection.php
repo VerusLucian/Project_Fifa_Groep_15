@@ -66,7 +66,7 @@ class PlayerCollection
         }
     }
 
-    public function NummberOfPlayers($team_id)
+    public function NummberOfPlayersByTeamId($team_id)
     {
         return count($this->GetPlayerCollectionByTeamId($team_id));
     }

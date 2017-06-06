@@ -12,7 +12,17 @@ $user = new User($db);
 
 
 
-var_dump($_SESSION);
+
+
+
+
+/*
+ * CHECK RESERVE PLAYER
+ * IF TRUE
+ *  DO REST
+ * IF NOT
+ * DO rest witchout reserve
+ */
 
 
 
