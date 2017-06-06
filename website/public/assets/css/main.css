@@ -1,0 +1,256 @@
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+html,body{
+    height: 100%;
+}
+
+.main-content{
+	min-height: 90vh;
+}
+.btn-success{
+    background-color: #15a768;
+    border-color: #15a768;
+}
+*, .score *, header *{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+/*Header*/
+
+header, footer{
+	background: #3c3c3c;
+	width: 100%;
+}
+
+header .container nav{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 5px 0px;
+}
+
+header h1{
+	color: #15a768;
+	font-weight: bold;
+	font-size: 38px;
+}
+
+header a, header a:focus{
+	color: #15a768;
+	font-weight: bold;
+	font-size: 24px;
+	text-decoration: none;
+}
+
+header a:hover{
+	color: #0e7c4d;
+	font-weight: bold;
+	font-size: 24px;
+	text-decoration: none;
+}
+
+header h1 a, header h1 a:focus{
+	color: #15a768;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 38px;
+}
+
+header h1 a:hover{
+	color: #0e7c4d;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 38px;
+}
+
+.error{
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #ff9696;
+	color: #fff;
+	/*border-radius: 0 0 5px 5px;*/
+	border-bottom: 2px #ff2b2b solid;
+	/*border-right: 2px #ff2b2b solid;*/
+	/*border-left: 2px #ff2b2b solid;*/
+}
+
+.msg{
+	border-bottom: 2px #007001 solid;
+	background: #30b238;
+}
+.error p{
+	margin: 0;
+	font-size: 1.2em;
+}
+
+/*Table*/
+
+.container .dropdown .col-md-2{
+	height: 50px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.container .dropdown .col-md-2 h2{
+	margin: 0px;
+	text-align: center;
+	font-weight: bold;
+	color: #15a768;
+}
+
+.container .dropdown .col-md-2 p{
+	margin: 0px;
+}
+
+.container .dropdown{
+	background: #f3f4f5;
+	padding: 50px;
+	border-radius: 10px;
+}
+
+.container .dropdown p{
+	background: #fff;
+	border: 1px solid #3c3c3c;
+	border-radius: 10px;
+	text-align: center;
+}
+
+/*Score*/
+
+.score ul{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+
+.score h3{
+    color: #15a768;
+    font-weight: bold;
+}
+
+.score .item{
+    width: 500px;
+    background: #f3f4f5;
+    border-radius: 10px;
+    padding: 10px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Teams-toevoegen*/
+
+.teams{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+}
+
+.teams-toevoegen button{
+	margin-bottom: 25px;
+}
+/*team_info*/
+.title{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px 0px;
+}
+.head{
+    margin: 0 150px 0 5px;
+;}
+.team_players{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px 0px;
+    padding:3px;
+}
+div.players{
+    border-style: solid;
+    width: 100px;
+    margin: 5px;
+    padding:5px;
+    text-align: center;
+}
+div.team_players{
+    margin: 10px 0 10px 0;
+}
+
+
+
+/*Team-info*/
+
+.team-info .hero{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+}
+
+.team-info .team-data{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+}
+
+.team-info .team-date img{
+	width: 250px;
+	height: 250px;
+}
+
+/*Footer*/
+
+footer{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+}
+
+footer p{
+	color: lightgrey;
+	margin: 10px 0px;
+}
