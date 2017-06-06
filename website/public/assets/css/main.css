@@ -214,6 +214,31 @@ div.team_players{
 
 
 
+/*Team-info*/
+
+.team-info .hero{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+}
+
+.team-info .team-data{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+}
+
+.team-info .team-date img{
+	width: 250px;
+	height: 250px;
+}
+
 /*Footer*/
 
 footer{

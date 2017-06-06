@@ -24,7 +24,7 @@ $owner = $User->IsOwnerOfATeam($team_id, $_SESSION['user']['id']);
                 echo "<p>".$player['student_id']. "</p>";
                 if ($owner)
                 {
-                    echo '<a href="../php/player_delete.php?player_id='.$player['id'].'&team_id='.$_SESSION['team'].'">DELET</a>';
+                    echo '<a href="../php/player_delete.php?player_id='.$player['id'].'&team_id='.$_SESSION['team'].'">DELETE</a>';
                 }
                 echo "</div>";
             }

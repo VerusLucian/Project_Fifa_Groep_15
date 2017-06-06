@@ -24,7 +24,7 @@ $owner = $User->IsOwnerOfATeam($team_id, $_SESSION['user']['id']);
                 if ($owner)
                 {
                     echo '<br>';
-                    echo '<a href="../php/team-delete.php?team_id='.$arr_team['id'].'">DELET</a>';
+                    echo '<a href="../php/team-delete.php?team_id='.$arr_team['id'].'">DELETE</a>';
                 }
             }
         ?>

@@ -27,7 +27,7 @@ require_once __DIR__ . '/../../php/init.php';
                     }
                     if ($User->UserHaveTeam($_SESSION['user']['id']))
                     {
-                        echo '<a href="teamsmenager.php">Team menager</a>';
+                        echo '<a href="teamsmenager.php">Team manager</a>';
                     }
                     else{
                         echo '<a href="teams.php">Team aanmaken</a>';
