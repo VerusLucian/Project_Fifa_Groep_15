@@ -22,7 +22,8 @@ if  (isset($_SESSION['user']))
 
 
 ?>
-<div class="title">
+<div class="container">
+    <div class="title">
     <div class="logo">
         <img src=" <?php echo $arr_team['img']; ?>" alt="" height="200px" width="200px">
     </div>
@@ -40,10 +41,37 @@ if  (isset($_SESSION['user']))
         {
             echo '<br>';
             echo '<div class="btn-group">';
-            echo '<a class="btn btn-warning" href="#">Edit</a>';
+            echo '<button class="btn btn-warning" data-toggle="collapse" data-target="#teamedit">Edit</button>';
             echo '<a class="btn btn-danger" href="../php/team-delete.php?team_id='.$arr_team['id'].'">Verwijder Team</a>';
             echo '</div>';
         }
         ?>
     </div>
+    </div>
+
+    <?php
+        if ($owner)
+        {
+            echo '<div id="teamedit" class="collapse">
+    <form action="../php/teamedit.php" method="post">
+        <div class="page-header">
+            <h2>Team Edit</h2>
+        </div>
+        <div class="form-group col-xs-6">
+            <label for="teamname">Team naam:</label>
+            <input type="text" name="teamname" id="teamname" class="form-control" value="'. $arr_team['name'].'" method="POST" required>
+        </div>
+        <div class="form-group col-xs-6">
+            <label for="teamimg">Team foto:</label>
+            <input type="text" name="teamimg" id="teamimg" class="form-control" value="' .$arr_team['img'] .'" method="POST">
+        </div>
+        <div class="form-group col-xs-12">
+            <label for="teamdesc">Team beschrijving:</label>
+            <textarea name="teamdesc" id="teamdesc" class="form-control" method="POST" rows="5" style="width: 100%">'. $arr_team['description'] .'</textarea>
+        </div>
+        <button type="submit" class="btn btn-success col-xs-4 col-xs-offset-4">Edit</button>
+    </form>
+    </div>';
+        }
+    ?>
 </div>

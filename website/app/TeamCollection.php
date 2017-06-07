@@ -12,22 +12,25 @@ class TeamCollection
 
     }
 
-    private function GetTeamsFromDb()
+    public function AddTeam($team_name, $img,$description, $memberid)
     {
+        $sql = "INSERT INTO `project_fifa`.`tbl_teams` (`id`, `poule_id`, `name`, `img`, `description`, `created_by`, `created_at`, `deleted_at`) VALUES (NULL, NULL , :teamname, :img, :description, :memberid, CURRENT_TIMESTAMP, NULL);";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array(':teamname' => $team_name, ':img' => $img, ':description' => $description, ':memberid' => $memberid));
+    }
 
-        $sql        = "SELECT * FROM `tbl_teams` WHERE `deleted_at` IS NULL";
-        $teams      = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-        $arr_teams  = array();
+    public function DeleteTeamById($team_id)
+    {
+        $sql = "UPDATE `tbl_teams` SET `deleted_at` = CURRENT_TIMESTAMP WHERE `id` = :id;";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array('id' => $team_id));
+    }
 
-        foreach ($teams as $team)
-        {
-            $time = $team + $this->GetTeamScoreByTeamId($team['id']);
-            array_push($arr_teams, $time);
-        }
-
-
-
-        return $this->aasort($arr_teams,"score");
+    public function DeleteTeamFromPoul($team_id)
+    {
+        $sql = "UPDATE `tbl_teams` SET `poule_id` = NULL WHERE `id` = $team_id;";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
     }
 
     private function aasort (&$array, $key) {
@@ -42,6 +45,11 @@ class TeamCollection
             $ret[$ii]=$array[$ii];
         }
         return $array=$ret;
+    }
+
+    public function NumberOfTeams()
+    {
+        return count($this->GetTeams());
     }
 
 
@@ -72,6 +80,24 @@ class TeamCollection
     public function GetTeams()
     {
         return $this->teams;
+    }
+
+    private function GetTeamsFromDb()
+    {
+
+        $sql        = "SELECT * FROM `tbl_teams` WHERE `deleted_at` IS NULL";
+        $teams      = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        $arr_teams  = array();
+
+        foreach ($teams as $team)
+        {
+            $time = $team + $this->GetTeamScoreByTeamId($team['id']);
+            array_push($arr_teams, $time);
+        }
+
+
+
+        return $this->aasort($arr_teams,"score");
     }
 
     public function GetTeamScoreByTeamId($team_id)
@@ -113,31 +139,6 @@ class TeamCollection
         return $arr_socre;
     }
 
-    public function NumberOfTeams()
-    {
-        return count($this->GetTeams());
-    }
-
-    public function AddTeam($team_name, $img,$description, $memberid)
-    {
-        $sql = "INSERT INTO `project_fifa`.`tbl_teams` (`id`, `poule_id`, `name`, `img`, `description`, `created_by`, `created_at`, `deleted_at`) VALUES (NULL, NULL , :teamname, :img, :description, :memberid, CURRENT_TIMESTAMP, NULL);";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute(array(':teamname' => $team_name, ':img' => $img, ':description' => $description, ':memberid' => $memberid));
-    }
-
-    public function DeleteTeamById($team_id)
-    {
-        $sql = "UPDATE `tbl_teams` SET `deleted_at` = CURRENT_TIMESTAMP WHERE `id` = :id;";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute(array('id' => $team_id));
-    }
-
-    public function DeleteTeamFromPoul($team_id)
-    {
-        $sql = "UPDATE `tbl_teams` SET `poule_id` = NULL WHERE `id` = $team_id;";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-    }
 
     public function SetTeamInPoul($team_id)
     {

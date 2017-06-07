@@ -1,15 +1,20 @@
 <div class="container">
-    <div class="row">
-        <br>
+
         <?php
         $teams = new TeamCollection($db);
         $poule = new PoulesCollection($db);
         $playerCollection = new PlayerCollection($db);
 
-        $poule_number = 0;
+        $temp = 0;
 
         foreach ($poule->GetPoules() as $poule)
         {
+            $temp++;
+            if ($temp == 1)
+            {
+                echo '    <div class="row">
+        <br>';
+            }
             echo '<div class="col-sm-6">
             <div class="panel panel-success">
                 <div class="panel-heading score">'.$poule['naam'].'</div>
@@ -35,8 +40,13 @@
             </div>
 
         </div>';
-        }
 
+            if ($temp == 2)
+            {
+                echo '</div>';
+                $temp = 0;
+            }
+        }
         ?>
-    </div>
+
 </div>
