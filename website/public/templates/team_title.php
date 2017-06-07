@@ -25,13 +25,6 @@ if  (isset($_SESSION['user']))
 <div class="title">
     <div class="logo">
         <img src=" <?php echo $arr_team['img']; ?>" alt="" height="200px" width="200px">
-        <?php
-            if ($owner)
-            {
-                echo '<br>';
-                echo '<a href="../php/team-delete.php?team_id='.$arr_team['id'].'">DELETE</a>';
-            }
-        ?>
     </div>
     <div class="head">
         <h1><?php echo $arr_team['name']; ?></h1>
@@ -42,5 +35,15 @@ if  (isset($_SESSION['user']))
         <p style="color: #ff0000">V:<?php echo $arr_team['lose']; ?></p>
         <p style="color: #ffd700">G:<?php echo $arr_team['draw']; ?></p>
         <p>P:<?php echo $arr_team['score']; ?></p>
+        <?php
+        if ($owner)
+        {
+            echo '<br>';
+            echo '<div class="btn-group">';
+            echo '<a class="btn btn-warning" href="#">Edit</a>';
+            echo '<a class="btn btn-danger" href="../php/team-delete.php?team_id='.$arr_team['id'].'">Verwijder Team</a>';
+            echo '</div>';
+        }
+        ?>
     </div>
 </div>

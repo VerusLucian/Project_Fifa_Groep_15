@@ -12,7 +12,7 @@ $user = new User($db);
 
 
 
-var_dump($_SESSION);
+var_dump();
 
 
 

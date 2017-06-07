@@ -90,30 +90,58 @@ html,body{
     display: -ms-flex;
     display: -o-flex;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin: 5px 0px;
 }
-.head{
-    margin: 0 150px 0 5px;
-;}
+
+.title .logo{
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+.title .results{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
 .team_players{
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
     display: -o-flex;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+	flex-wrap: wrap;
+    justify-content: flex-start;
+	align-items: stretch;
     margin: 5px 0px;
-    padding:3px;
+    padding: 3px;
 }
 div.players{
-    border-style: solid;
-    width: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: left;
+    border: solid 1px;
+	border-radius: 5px;
     margin: 5px;
     padding:5px;
-    text-align: center;
+
+}
+
+.players p{
+	margin-right: 5px;
+	margin-left: 5px;
+	font-weight: bold;
+	display: flex;
+	justify-content: space-between;
+}
+
+.players span{
+	margin-left: 5px;
+	font-weight: lighter;
 }
 div.team_players{
     margin: 10px 0 10px 0;

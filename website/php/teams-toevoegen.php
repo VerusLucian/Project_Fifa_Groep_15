@@ -16,7 +16,7 @@ if (empty($teamimg))
 if (!empty($teamname) && !empty($teamimg) && !empty($teamdesc))
 {
 
-    if ($teamCollection->NumberOfTeams() < 14)
+    if ($teamCollection->NumberOfTeams() <= 14)
     {
         $teamCollection->AddTeam($teamname, $teamimg, $teamdesc, $memberid);
         $_SESSION['HaveTeam'] = true;

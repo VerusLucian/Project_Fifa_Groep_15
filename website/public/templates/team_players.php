@@ -23,12 +23,12 @@ if (isset($_SESSION['user']))
             foreach ($arr_players as $player)
             {
                 echo '<div class="players">';
-                echo "<p>".$player['first_name']. "</p>";
-                echo "<p>".$player['last_name']. "</p>";
-                echo "<p>".$player['student_id']. "</p>";
+                echo "<p>Studenten Nummer: <span>".$player['student_id']. "</span></p>";
+                echo "<p>Naam: <span>".$player['first_name']. "</span></p>";
+                echo "<p>Achternaam: <span>".$player['last_name']. "</span></p>";
                 if ($owner)
                 {
-                    echo '<a href="../php/player_delete.php?player_id='.$player['id'].'&team_id='.$_SESSION['team'].'">DELETE</a>';
+                    echo '<a class="btn btn-danger" href="../php/player_delete.php?player_id='.$player['id'].'&team_id='.$_SESSION['team'].'">Verwijder Player</a>';
                 }
                 echo "</div>";
             }
