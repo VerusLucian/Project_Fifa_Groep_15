@@ -17,7 +17,7 @@
                     <label for="teamdesc">Team beschrijving:</label>
                     <textarea name="teamdesc" id="teamdesc" class="form-control" placeholder="Beschrijving..." method="POST" rows="5" required></textarea>
                 </div>
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" class="btn">Verzenden</button>
           </form>
         </div>
     </div>

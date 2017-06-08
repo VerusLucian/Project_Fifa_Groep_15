@@ -2,11 +2,15 @@
 class User
 {
     private $db;
+    private $UserCollection;
 
     public function __construct($db)
     {
         $this->db = $db;
+        $sql = "SELECT * FROM `tbl_members` WHERE `deleted_at` IS NULL";
+        $this->UserCollection = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     public function UserHaveTeam($user_id)
     {
@@ -21,6 +25,12 @@ class User
             return true;
         }
             return false;
+    }
+
+    public function MakeUserAdmin($user_id)
+    {
+        $sql = "INSERT INTO `project_fifa`.`tbl_admins` (`id`, `id_user`) VALUES (NULL, '$user_id');";
+        $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function IsOwnerOfATeam($team_id, $user_id)
@@ -44,6 +54,22 @@ class User
         }
     }
 
+    public function IsUserAdminById($user_id)
+    {
+        $sql = "SELECT * FROM `tbl_admins` WHERE `id_user` = '$user_id'";
+        $count =  $this->db->query($sql)->rowCount();
+        if ($count == 1)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+
+
+
+    }
+
     public function IsUserAdmin()
     {
         if (!isset($_SESSION['user']))
@@ -61,5 +87,22 @@ class User
         else{
             return false;
         }
+    }
+
+    public function GetUserCollection()
+    {
+        return $this->UserCollection;
+    }
+
+    public function GetUserById($user_id)
+    {
+        foreach ($this->UserCollection as $user)
+        {
+            if ($user['id'] == $user_id)
+            {
+                return $user;
+            }
+        }
+        return NULL;
     }
 }

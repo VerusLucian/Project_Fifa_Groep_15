@@ -37,11 +37,11 @@ require_once __DIR__ . '/../../php/init.php';
                         echo "<li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>Opties</a><ul class=\"dropdown-menu\">";
                         if ($User->IsUserAdmin())
                         {
-                            echo '<li><a href="adminpanel.php">Admin Panel</a></li>';
+                            echo '<li><a href="adminpanel.php">Begeeren</a></li>';
                         }
                         if ($User->UserHaveTeam($_SESSION['user']['id']))
                         {
-                            echo '<li><a href="teamsmenager.php">Team manager</a></li>';
+                            echo '<li><a href="teamsmenager.php">Team beheren</a></li>';
                         }
                         else{
                             echo '<li><a href="teams.php">Team aanmaken</a></li>';
@@ -54,11 +54,11 @@ require_once __DIR__ . '/../../php/init.php';
                 if ($Login->isLoggedIn() == true)
                 {
                     echo "<li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>".$_SESSION['user']['firstname'].' '.$_SESSION['user']['lastname']."</a><ul class=\"dropdown-menu\">";
-                    echo '<li><a href="../php/login_app.php">Logout</a></li>';
+                    echo '<li><a href="../php/login_app.php">Uitloggen</a></li>';
                     echo "</ul></li>";
                 }
                 else {
-                    echo '<li><a href="login.php">Login</a></li>';
+                    echo '<li><a href="login.php">Inloggen</a></li>';
                 }
                 ?>
             </ul>
@@ -72,10 +72,9 @@ require_once __DIR__ . '/../../php/init.php';
         $mode = $_GET['mode'];
     }
     if (isset($_GET['message'])) {
-        echo '<div class="alert alert-'.$mode.'">';
-        echo "<p>".$_GET['message'] ."</p>";
+        echo '<div id="demo" class=" collapse in alert alert-'.$mode.'">';
+        echo "<p>".$_GET['message'] ."<button type=\"button\" class=\"btn btn-link\" style='color: #000; padding: 0 ; margin: auto 10px; float: right' data-toggle=\"collapse\" data-target=\"#demo\">X</button></p>";
         echo "</div>";
-
     }
     ?>
 

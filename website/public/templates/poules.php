@@ -22,8 +22,8 @@
                     <thead>
                     <tr>
                         <th>Team</th>
-                        <th>W-L-D</th>
-                        <th>TotalScore</th>
+                        <th>W-V-G</th>
+                        <th>Score</th>
                     </tr>
                     </thead>
                     <tbody>';

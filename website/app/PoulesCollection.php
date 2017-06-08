@@ -40,4 +40,16 @@ class PoulesCollection
     {
         return $this->poules;
     }
+
+    public function GetPouleById($poule_id)
+    {
+        foreach ($this->poules as $poule)
+        {
+            if ($poule['id'] == $poule_id)
+            {
+                return $poule;
+            }
+        }
+        return NULL;
+    }
 }

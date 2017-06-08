@@ -24,25 +24,26 @@ if  (isset($_SESSION['user']))
 ?>
 <div class="container">
     <div class="title">
-    <div class="logo">
+        <br>
+    <div class="logo col-xs-3">
         <img src=" <?php echo $arr_team['img']; ?>" alt="" height="200px" width="200px">
     </div>
-    <div class="head">
+    <div class="head col-xs-6">
         <h1><?php echo $arr_team['name']; ?></h1>
         <p> <?php echo $arr_team['description'];?></p>
     </div>
-    <div class="results">
+    <div class="results col-xs-3">
         <p style="color: #15a768">W:<?php echo $arr_team['win']; ?></p>
         <p style="color: #ff0000">V:<?php echo $arr_team['lose']; ?></p>
         <p style="color: #ffd700">G:<?php echo $arr_team['draw']; ?></p>
-        <p>P:<?php echo $arr_team['score']; ?></p>
+        <p>S:<?php echo $arr_team['score']; ?></p>
         <?php
         if ($owner)
         {
             echo '<br>';
             echo '<div class="btn-group">';
-            echo '<button class="btn btn-warning" data-toggle="collapse" data-target="#teamedit">Edit</button>';
-            echo '<a class="btn btn-danger" href="../php/team-delete.php?team_id='.$arr_team['id'].'">Verwijder Team</a>';
+            echo '<button class="btn btn-warning" data-toggle="collapse" data-target="#teamedit">Wijzigen</button>';
+            echo '<a class="btn btn-danger" href="../php/team-delete.php?team_id='.$arr_team['id'].'">Verwijder team</a>';
             echo '</div>';
         }
         ?>
@@ -69,7 +70,7 @@ if  (isset($_SESSION['user']))
             <label for="teamdesc">Team beschrijving:</label>
             <textarea name="teamdesc" id="teamdesc" class="form-control" method="POST" rows="5" style="width: 100%">'. $arr_team['description'] .'</textarea>
         </div>
-        <button type="submit" class="btn btn-success col-xs-4 col-xs-offset-4">Edit</button>
+        <button type="submit" class="btn btn-success col-xs-4 col-xs-offset-4">Wijzigen</button>
     </form>
     </div>';
         }
