@@ -11,8 +11,7 @@ $login = new Login($db);
 $user = new User($db);
 
 
-
-var_dump();
+$user->DeleteUser(32);
 
 
 

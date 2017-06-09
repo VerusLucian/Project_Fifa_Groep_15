@@ -10,7 +10,15 @@ class User
         $sql = "SELECT * FROM `tbl_members` WHERE `deleted_at` IS NULL";
         $this->UserCollection = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function GetUserTeamById($user_id)
+    {
+        $sql = "SELECT `id` FROM `tbl_teams` WHERE `created_by` = :user_id AND `deleted_at` IS NULL";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array('user_id' => $user_id));
 
+        return $stmt -> fetch(PDO::FETCH_COLUMN);
+
+    }
 
     public function UserHaveTeam($user_id)
     {
@@ -104,5 +112,15 @@ class User
             }
         }
         return NULL;
+    }
+    public function DeleteUser($user_id)
+    {
+        $team_id =  $this ->GetUserTeamById($user_id);
+        $Team = new TeamCollection($this->db);
+        $Players = new PlayerCollection($this->db);
+            $Team->DeleteTeamById($team_id);
+            $Players->DeletePlayersByTeamId($team_id);
+        $sql = "UPDATE `tbl_members` SET `deleted_at` = CURRENT_TIMESTAMP WHERE `id` = '$user_id'";
+        $this->db->query($sql);
     }
 }
