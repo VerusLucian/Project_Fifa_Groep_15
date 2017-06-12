@@ -77,8 +77,14 @@ $TimeTabel = new Timetabel($db);
                         echo '<td><div class="btn-group" role="group" style="float: right">';
                                         if (!$Users->IsUserAdminById($user['id']))
                                         {
-                                            echo '<a href="templates/make_user_admin.php?user_id='.$user['id'].'" class="btn btn-warning btn-sm">Maak admin</a>';
+                                            echo '<a href="templates/make_user_admin.php?user_id='.$user['id'].'" class="btn btn-warning btn-sm">Maak Admin</a>';
+
                                         }
+                                        if ($Users->IsUserAdminById($user['id']))
+                                        {
+                                            echo '<a href="templates/delete_user_admin.php?user_id='.$user['id'].'" class="btn btn-primary btn-sm">Verwijder Admin</a>';
+                                        }
+
                                     echo '<a href="#" class="btn btn-danger btn-sm">Verwijderen</a>
                                     </div></td>';
                         echo '</tr>';

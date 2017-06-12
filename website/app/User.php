@@ -40,6 +40,12 @@ class User
         $sql = "INSERT INTO `project_fifa`.`tbl_admins` (`id`, `id_user`) VALUES (NULL, '$user_id');";
         $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function DeleteUserAdmin($user_id)
+    {
+        $sql = "DELETE FROM `project_fifa`.`tbl_admins` WHERE 'tbl_admins'.`id` = '$user_id'";
+        $this->db->query($sql);
+    }
+
 
     public function IsOwnerOfATeam($team_id, $user_id)
     {
