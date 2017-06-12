@@ -8,8 +8,64 @@ $Poule = new PoulesCollection($db);
 $final = new FinalTabel($db);
 $TimeTabel = new Timetabel($db);
 ?>
+<?php
 
-<?php include_once 'templates/poules.php';?>
+
+$temp = 0;
+
+foreach ($Poule->GetPoules() as $poule)
+{
+    $temp++;
+    if ($temp == 1)
+    {
+        echo '    <div class="row">
+        <br>';
+    }
+    echo '<div class="col-sm-6">
+            <div class="panel panel-success">
+                <div class="pull-right">
+                    <button class="btn btn-default btn-xs" data-toggle="collapse" data-target="#poule'.$poule['id'].'">Wedstrijden Maken</button>
+                </div>
+                <div class="panel-heading score">'.$poule['naam'].'</div>
+                    <div id="poule'.$poule['id'].'" class="collapse">
+                        <form class="form-inline">
+                            <input type="time" class="form-control" style="width: 40%;" id="inlineFormInput" placeholder="Begin Tijd">
+                            <input type="time" class="form-control" style="width: 40%;" id="inlineFormInputGroup" placeholder="Tijd van Wedstrijd">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                         </form>
+                    </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>W-V-G</th>
+                        <th>Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>';
+    foreach ($Team->GetTeamByPuleId($poule['id']) as $team)
+    {
+        echo '<tr>';
+        echo '<td><a href="team_info.php?team_id='.$team['id'].'">' . $team['name'] . '</a></td>';
+        echo '<td>' . $team['win'] .'-'.$team['lose'].'-'.$team['draw'].'</td>';
+        echo '<td>' . $team['score'] . '</td></tr>';
+        echo '</tr>';
+    }
+    echo '</tbody>
+                </table>
+            </div>
+
+        </div>';
+
+    if ($temp == 2)
+    {
+        echo '</div>';
+        $temp = 0;
+    }
+}
+?>
+
+
 
 <div class="container">
     <div class="row">

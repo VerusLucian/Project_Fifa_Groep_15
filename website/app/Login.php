@@ -31,7 +31,7 @@ class Login
 
     private function validateacc($email, $password)
     {
-        $sql = "SELECT `id`, `email`, `firstname`, `lastname` FROM `tbl_members` WHERE `email` = :email and `password` = :password";
+        $sql = "SELECT `id`, `email`, `firstname`, `lastname` FROM `tbl_members` WHERE `email` = :email and `password` = :password and `deleted_at` IS NULL";
         $stmt = $this->db->prepare($sql);
         $stmt->execute(array('email' => $email, 'password' => $password));
         return $stmt->fetch(PDO::FETCH_ASSOC);

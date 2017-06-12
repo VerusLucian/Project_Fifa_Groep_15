@@ -27,8 +27,7 @@ class PoulesCollection
     public function NumberOfTeamsInPoulById($poule_id)
     {
         $teamCollection = new TeamCollection($this->db);
-        $arr_teams = $teamCollection->GetTeamByPuleId($poule_id);
-        return count($arr_teams);
+        return count($teamCollection->GetTeamByPuleId($poule_id));
     }
 
     public function GetPuleId()
