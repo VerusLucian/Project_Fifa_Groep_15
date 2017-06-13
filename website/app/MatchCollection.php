@@ -95,6 +95,12 @@ class MatchCollection
     {
         return $this->matchCollection;
     }
+    public function  DeleteMatchTeam($match_id)
+    {
+        $sql = "UPDATE `project_fifa`.`tbl_matches` SET `start_time` = NULL WHERE `tbl_matches`.`id` = :pouleid ;";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(array('pouleid' => $match_id));
+    }
 
     public function MatchCollectionEndedByTeamId($team_id)
     {

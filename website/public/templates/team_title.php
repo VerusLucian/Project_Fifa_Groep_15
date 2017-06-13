@@ -56,7 +56,7 @@ if  (isset($_SESSION['user']))
             echo '<div id="teamedit" class="collapse">
     <form action="../php/teamedit.php" method="post">
         <div class="page-header">
-            <h2>Team Edit</h2>
+            <h2>Team Aanpassen</h2>
         </div>
         <div class="form-group col-xs-6">
             <label for="teamname">Team naam:</label>

@@ -26,6 +26,7 @@ class Timetabel
                 $TeamB = $team->GetTeamById($match['team_id_b']);
 
                 $temp_arr_timetabel = [
+                    'id'        =>   $match['id'],
                     'team_a'    =>   $TeamA['name'],
                     'team_b'    =>   $TeamB['name'],
                     'time'      =>   substr($match['start_time'],0,5),

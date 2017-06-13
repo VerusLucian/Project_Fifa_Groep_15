@@ -79,7 +79,7 @@ foreach ($Poule->GetPoules() as $poule)
                     <th>Team</th>
                     <th>Team</th>
                     <th>Tijd</th>
-                    <th></th>
+                    <th>Opties</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -92,6 +92,10 @@ foreach ($Poule->GetPoules() as $poule)
                     echo "<td><a href='team_info.php?team_id=".$item['team_id_a']."'>" .$item['team_a']."</a></td>";
                     echo "<td><a href='team_info.php?team_id=".$item['team_id_b']."'>" .$item['team_b']."</a></td>";
                     echo "<td>" .$item['time']."</td>";
+                    echo '<td><div class="btn-group" role="group" style="float: right">
+                                    <a href="team_info.php?team_id='.$team['id'].'" class="btn btn-default btn-sm">Wijzigen</a>
+                                    <a href="../php/matchdelete.php?match_id='.$item['id'].'" class="btn btn-danger btn-sm">Verwijderen</a>
+                                    </div></td>';
                     echo '</tr>';
                 }
                 ?>
@@ -140,8 +144,7 @@ foreach ($Poule->GetPoules() as $poule)
                     {
                         echo '<a href="templates/delete_user_admin.php?user_id='.$user['id'].'" class="btn btn-primary btn-sm">Verwijder Admin</a>';
                     }
-
-                                    echo '<a href="../php/delete_user_id.php?user_id='.$user['id'].'" class="btn btn-danger btn-sm">Verwijderen</a>
+                        echo '<a href="../php/delete_user_id.php?user_id='.$user['id'].'" class="btn btn-danger btn-sm">Verwijderen</a>
                                     </div></td>';
                         echo '</tr>';
                     }
