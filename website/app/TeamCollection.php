@@ -109,7 +109,7 @@ class TeamCollection
             'score' => 0
         );
 
-        $sql            = "SELECT * FROM `tbl_matches` WHERE `team_id_a` = '$team_id' OR `team_id_b` = '$team_id' AND `score_team_a` IS NOT NULL AND `score_team_b` IS NOT NULL ";
+        $sql            = "SELECT * FROM `tbl_matches` WHERE `score_team_a` IS NOT NULL AND `score_team_b` IS NOT NULL AND `deleted_at` IS NULL";
         $arr_matches    = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($arr_matches as $match) {

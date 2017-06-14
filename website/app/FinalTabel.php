@@ -26,4 +26,25 @@ class FinalTabel
         }
         return $arr_leadteams;
     }
+
+    public function CheckPosition($position, $team_id)
+    {
+        $sql = "SELECT * FROM `tbl_finals` WHERE `position` = '$position' AND `team_id` = '$team_id';";
+
+
+        if ($this->db->query($sql)->rowCount() == 1)
+        {
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    public function GetTeamByPosition($position)
+    {
+        $sql = "SELECT `team_id` FROM `tbl_finals` WHERE `position` = '$position';";
+        return $this->db->query($sql)->fetch()['team_id'];
+    }
+
 }

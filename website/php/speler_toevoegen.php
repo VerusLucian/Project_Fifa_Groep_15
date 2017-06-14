@@ -33,4 +33,4 @@ else{
     echo "header";
 }
 
-header("Location: ../website/team.php");
+header("Location: ".$_SERVER['HTTP_REFERER']);

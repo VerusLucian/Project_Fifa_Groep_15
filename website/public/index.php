@@ -6,7 +6,7 @@ require(realpath(__DIR__) . '/templates/header.php');
 
 
         <?php
-        include 'templates/dropdowntable.php';
+        include 'templates/play_off.php';
         include 'templates/poules.php';
         include 'templates/tijdschema.php';
         ?>

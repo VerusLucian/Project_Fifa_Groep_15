@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../../php/init.php';
+require_once '../php/init.php';
 $User = new User($db);
 
 if (isset($_GET['user_id']))
@@ -10,4 +10,6 @@ if (isset($_GET['user_id']))
 
 $message = "Gebruiker succesvol admin rank toegevoegd!";
 
-header("Location: ../adminpanel.php?message=$message");
+$url = parse_url($_SERVER['HTTP_REFERER']);
+
+header("Location: ".$url['path']."?message=$message");

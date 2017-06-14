@@ -8,7 +8,7 @@ class MatchCollection
     public function __construct($db)
     {
         $this->db = $db;
-        $sql = "SELECT * FROM `tbl_matches` ORDER BY `tbl_matches`.`start_time` ASC;";
+        $sql = "SELECT * FROM `tbl_matches` WHERE `deleted_at` IS NULL ORDER BY `tbl_matches`.`start_time` ASC;";
         $this->matchCollection = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -114,9 +114,9 @@ class MatchCollection
     }
     public function  DeleteMatchTeam($match_id)
     {
-        $sql = "UPDATE `project_fifa`.`tbl_matches` SET `start_time` = NULL WHERE `tbl_matches`.`id` = :pouleid ;";
+        $sql = "UPDATE `project_fifa`.`tbl_matches` SET `deleted_at` = CURRENT_TIMESTAMP WHERE `tbl_matches`.`id` = :match_id;";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(array('pouleid' => $match_id));
+        $stmt->execute(array('match_id' => $match_id));
     }
 
     public function MatchCollectionEndedByTeamId($team_id)

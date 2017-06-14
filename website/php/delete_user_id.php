@@ -10,4 +10,4 @@ if (isset($_GET['user_id']))
 
 $message = "Gebruiker succesvol verwijderd!";
 
-header("Location: ../adminpanel.php?message=$message");
+header("Location: ../public/adminpanel.php?message=$message");

@@ -44,7 +44,7 @@ class User
 
     public function DeleteUserAdmin($user_id)
     {
-        $sql = "DELETE FROM `project_fifa`.`tbl_admins` WHERE 'tbl_admins'.`id` = '$user_id'";
+        $sql = "DELETE FROM `project_fifa`.`tbl_admins` WHERE `tbl_admins`.`id_user` = '$user_id'";
         $this->db->query($sql);
     }
 

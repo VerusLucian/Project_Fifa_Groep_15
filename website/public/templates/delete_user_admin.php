@@ -5,9 +5,10 @@ $User = new User($db);
 
 if (isset($_GET['user_id']))
 {
-    $User->MakeUserAdmin($_GET['user_id']);
+    $User->DeleteUserAdmin($_GET['user_id']);
 }
 
 $message = "Gebruiker succesvol admin rank verwijderd!";
+$url = parse_url($_SERVER['HTTP_REFERER']);
 
-header("Location: ../adminpanel.php?message=$message");
+header("Location: ".$url['path']."?message=$message");

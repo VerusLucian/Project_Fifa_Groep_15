@@ -10,4 +10,4 @@ if (isset($_GET['match_id']))
 
 $message = "Match succesvol verwijderd!";
 
-header("Location: ../adminpanel.php?message=$message");
+header("Location: ../public/adminpanel.php?message=$message");

@@ -9,5 +9,6 @@ if (isset($_POST['start_time']) && isset($_POST['duration_time']) && isset($_POS
 }
 
 $message = "Match succesvol toegevoegd!";
+$url = parse_url($_SERVER['HTTP_REFERER']);
 
-header("Location: ../adminpanel.php?message=$message");
+header("Location: ".$url['path']."?message=$message");

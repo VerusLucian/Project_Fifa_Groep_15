@@ -5,9 +5,179 @@ require(realpath(__DIR__) . '/templates/header.php');
 $Users = new User($db);
 $Team = new TeamCollection($db);
 $Poule = new PoulesCollection($db);
-$final = new FinalTabel($db);
+$Final = new FinalTabel($db);
 $TimeTabel = new Timetabel($db);
+$MatchCollection = new MatchCollection($db);
 ?>
+<?php
+
+$pule_a = $Final->GetLeadTeamsByPoulId('1');
+$pule_b = $Final->GetLeadTeamsByPoulId('2');
+$pule_c = $Final->GetLeadTeamsByPoulId('3');
+$pule_d = $Final->GetLeadTeamsByPoulId('4');
+
+$arr_teams = array_merge($pule_a, $pule_b, $pule_c, $pule_d);
+
+?>
+<div class="container">
+    <form action="../php/update_finale.php" method="post">
+    <h2>Speelschema</h2>
+    <div class="dropdowntable">
+        <div class="row">
+            <div class="col-xs-2">
+                <p><?php if (!empty($pule_a['0'])){ echo  $pule_a['0']['name'];}else { echo '1st plaats poule A';}?></p>
+                <p><?php if (!empty($pule_c['0'])){ echo  $pule_c['0']['name'];}else { echo '1st plaats poule C';}?></p>
+            </div>
+            <div class="col-xs-2 col-xs-offset-3" style="justify-content: flex-end;">
+                <h2>Winnaar</h2>
+                <p>
+                    <?php
+                    echo '<select class="col-xs-12" name="D1"><option value="NULL">Selecteer Team</option>';
+                    foreach ($arr_teams as $team)
+                    {
+                        if($Final->CheckPosition('D1', $team['id']))
+                        {
+                            echo '<option value="'.$team['id'].'">'.$team['name'].'</option>';
+                        }
+                        else {
+                            echo '<option selected="selected" value="' . $team['id'] . '">' . $team['name'] . '</option>';
+                        }
+                    }
+                    echo '</select>'
+                    ?>
+
+                </p>
+                <input type="submit" class="btn btn-success btn-xs" value="Pas Play Off Aan">
+            </div>
+            <div class="col-xs-2 col-xs-offset-3">
+                <p><?php if (!empty($pule_a['1'])){ echo  $pule_a['1']['name'];}else { echo '2de plaats poule A';}?></p>
+                <p><?php if (!empty($pule_c['1'])){ echo  $pule_c['1']['name'];}else { echo '2de plaats poule C';}?></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2 col-xs-offset-2">
+                <p>
+                    <?php
+                    echo '<select class="col-xs-12" name="A1"><option value="NULL">Selecteer Team</option>';
+                    foreach ($arr_teams as $team)
+                    {
+                        if($Final->CheckPosition('A1', $team['id']))
+                        {
+                            echo '<option value="'.$team['id'].'">'.$team['name'].'</option>';
+                        }
+                        else {
+                            echo '<option selected="selected" value="' . $team['id'] . '">' . $team['name'] . '</option>';
+                        }
+                    }
+                    echo '</select>'
+                    ?>
+                </p>
+                <p>
+                    <?php
+                    echo '<select class="col-xs-12" name="A2"><option value="NULL">Selecteer Team</option>';
+                    foreach ($arr_teams as $team)
+                    {
+                        if($Final->CheckPosition('A2', $team['id']))
+                        {
+                            echo '<option value="'.$team['id'].'">'.$team['name'].'</option>';
+                        }
+                        else {
+                            echo '<option selected="selected" value="' . $team['id'] . '">' . $team['name'] . '</option>';
+                        }
+                    }
+                    echo '</select>'
+                    ?>
+                </p>
+            </div>
+            <div class="col-xs-2" style="justify-content: center;">
+                <p>
+                    <?php
+                    echo '<select class="col-xs-12" name="C1"><option value="NULL">Selecteer Team</option>';
+                    foreach ($arr_teams as $team)
+                    {
+                        if($Final->CheckPosition('C1', $team['id']))
+                        {
+                            echo '<option value="'.$team['id'].'">'.$team['name'].'</option>';
+                        }
+                        else {
+                            echo '<option selected="selected" value="' . $team['id'] . '">' . $team['name'] . '</option>';
+                        }
+                    }
+                    echo '</select>'
+                    ?>
+                </p>
+            </div>
+            <div class="col-xs-2" style="justify-content: center;">
+                <p>
+                    <?php
+                    echo '<select class="col-xs-12" name="C2"><option value="NULL">Selecteer Team</option>';
+                    foreach ($arr_teams as $team)
+                    {
+                        if($Final->CheckPosition('C2', $team['id']))
+                        {
+                            echo '<option value="'.$team['id'].'">'.$team['name'].'</option>';
+                        }
+                        else {
+                            echo '<option selected="selected" value="' . $team['id'] . '">' . $team['name'] . '</option>';
+                        }
+                    }
+                    echo '</select>'
+                    ?>
+                </p>
+            </div>
+            <div class="col-xs-2">
+                <p>
+                    <?php
+                    echo '<select class="col-xs-12" name="B1"><option value="NULL">Selecteer Team</option>';
+                    foreach ($arr_teams as $team)
+                    {
+                        if($Final->CheckPosition('B1', $team['id']))
+                        {
+                            echo '<option value="'.$team['id'].'">'.$team['name'].'</option>';
+                        }
+                        else {
+                            echo '<option selected="selected" value="' . $team['id'] . '">' . $team['name'] . '</option>';
+                        }
+                    }
+                    echo '</select>'
+                    ?>
+                </p>
+                <p>
+                    <?php
+                    echo '<select class="col-xs-12" name="B2"><option value="NULL">Selecteer Team</option>';
+                    foreach ($arr_teams as $team)
+                    {
+                        if($Final->CheckPosition('B2', $team['id']))
+                        {
+                          echo '<option value="'.$team['id'].'">'.$team['name'].'</option>';
+                        }
+                        else {
+                            echo '<option selected="selected" value="' . $team['id'] . '">' . $team['name'] . '</option>';
+                        }
+                    }
+                    echo '</select>'
+                    ?>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2">
+                <p><?php if (!empty($pule_b['0'])){ echo  $pule_b['0']['name'];}else { echo '1st plaats poule B';}?></p>
+                <p><?php if (!empty($pule_d['0'])){ echo  $pule_d['0']['name'];}else { echo '1st plaats poule D';}?></p>
+            </div>
+            <div class="col-xs-2 col-xs-offset-8">
+                <p><?php if (!empty($pule_b['1'])){ echo  $pule_b['1']['name'];}else { echo '2de plaats poule B';}?></p>
+                <p><?php if (!empty($pule_d['1'])){ echo  $pule_d['1']['name'];}else { echo '2de plaats poule D';}?></p>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+
+
+
+
+
 <?php
 
 
@@ -70,41 +240,52 @@ foreach ($Poule->GetPoules() as $poule)
 
 <div class="container">
     <div class="row">
-        <div class="panel panel-default filterable">
+        <div class="panel panel-primary filterable">
             <div class="panel-heading">
-                <h3 class="panel-title">Teams</h3>
+                <h3 class="panel-title">Wedstrijden</h3>
+                <div class="pull-right">
+                    <button class="btn btn-default btn-xs" data-toggle="collapse" data-target="#matchtable">Vertonen/verbergen</button>
+                    <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span></button>
+                </div>
             </div>
-            <table  class="table">
-                <thead>
-                <tr class="filters">
-                    <th>Team</th>
-                    <th>Team</th>
-                    <th>Tijd</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-                $arr_timetabel = $TimeTabel->GetTimeTabel();
-
-                foreach ($arr_timetabel as $item)
-                {
-                    echo '<tr>';
-                    echo "<td><a href='team_info.php?team_id=".$item['team_id_a']."'>" .$item['team_a']."</a></td>";
-                    echo "<td><a href='team_info.php?team_id=".$item['team_id_b']."'>" .$item['team_b']."</a></td>";
-                    echo "<td>" .$item['time']."</td>";
-                    echo '<td><div class="btn-group" role="group" style="float: right">
+            <div id="matchtable" class="collapse in" style="max-height: 500px; overflow: scroll; overflow-x: hidden;">
+                <table  class="table">
+                    <thead>
+                    <tr class="filters">
+                        <th><input type="text" class="form-control" placeholder="Team A" disabled></th>
+                        <th class="col-xs-2">Score</th>
+                        <th class="col-xs-2">Score</th>
+                        <th><input type="text" class="form-control" placeholder="Team B" disabled></th>
+                        <th class="col-xs-2">Tijd</th>
+                        <th class="col-xs-2"></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $arr_match = $MatchCollection->GetMatchCollection();
+                    foreach ($arr_match as $item)
+                    {
+                        echo '<tr>';
+                        echo "<td><a href='team_info.php?team_id=".$item['team_id_a']."'>" .$Team->GetTeamById($item['team_id_a'])['name']."</a></td>";
+                        echo '<td>'.$item['score_team_a'].'</td>';
+                        echo '<td>'.$item['score_team_b'].'</td>';
+                        echo "<td><a href='team_info.php?team_id=".$item['team_id_b']."'>" .$Team->GetTeamById($item['team_id_b'])['name']."</a></td>";
+                        echo "<td>" .$item['start_time']."</td>";
+                        echo '<td><div class="btn-group" role="group" style="float: right">
                             <a href="edit_match.php?match_id='.$item['id'].'" class="btn btn-default btn-sm">Wijzigen</a>
                             <a href="../php/matchdelete.php?match_id='.$item['id'].'" class="btn btn-danger btn-sm">Verwijderen</a>
                             </div></td>';
-                    echo '</tr>';
-                }
-                ?>
-                </tbody>
-            </table>
+                        echo '</tr>';
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
+
 
 <div class="container">
     <div class="row">
@@ -138,7 +319,7 @@ foreach ($Poule->GetPoules() as $poule)
                         echo '<td><div class="btn-group" role="group" style="float: right">';
                                         if (!$Users->IsUserAdminById($user['id']))
                                         {
-                                            echo '<a href="templates/make_user_admin.php?user_id='.$user['id'].'" class="btn btn-warning btn-sm">Maak Admin</a>';
+                                            echo '<a href="../php/make_user_admin.php?user_id='.$user['id'].'" class="btn btn-warning btn-sm">Maak Admin</a>';
 
                                         }
                                         if ($Users->IsUserAdminById($user['id']))

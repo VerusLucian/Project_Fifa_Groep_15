@@ -16,4 +16,4 @@ if (isset($_GET['player_id']) && isset($_GET['team_id']) && ($User->IsUserAdmin(
     }
 }
 
-header("Location: ../website/team.php");
+header("Location: ".$_SERVER['HTTP_REFERER']);

@@ -70,6 +70,7 @@ if  (isset($_SESSION['user']))
             <label for="teamdesc">Team beschrijving:</label>
             <textarea name="teamdesc" id="teamdesc" class="form-control" method="POST" rows="5" style="width: 100%">'. $arr_team['description'] .'</textarea>
         </div>
+        <input type="text" name="teamid" value="'.$arr_team['id'].'" hidden>
         <button type="submit" class="btn btn-success col-xs-4 col-xs-offset-4">Wijzigen</button>
     </form>
     </div>';
