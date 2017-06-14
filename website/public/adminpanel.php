@@ -94,7 +94,7 @@ foreach ($Poule->GetPoules() as $poule)
                     echo "<td><a href='team_info.php?team_id=".$item['team_id_b']."'>" .$item['team_b']."</a></td>";
                     echo "<td>" .$item['time']."</td>";
                     echo '<td><div class="btn-group" role="group" style="float: right">
-                            <a href="team_info.php?team_id='.$item['id'].'" class="btn btn-default btn-sm">Wijzigen</a>
+                            <a href="edit_match.php?match_id='.$item['id'].'" class="btn btn-default btn-sm">Wijzigen</a>
                             <a href="../php/matchdelete.php?match_id='.$item['id'].'" class="btn btn-danger btn-sm">Verwijderen</a>
                             </div></td>';
                     echo '</tr>';

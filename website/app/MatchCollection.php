@@ -96,6 +96,18 @@ class MatchCollection
         }
     }
 
+    public function GetMatchById($match_id)
+    {
+        foreach ($this->matchCollection as $match)
+        {
+            if ($match['id'] == $match_id)
+            {
+                return $match;
+            }
+        }
+        return NULL;
+    }
+
     public function GetMatchCollection()
     {
         return $this->matchCollection;
