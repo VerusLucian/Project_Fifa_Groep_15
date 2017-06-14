@@ -7,3 +7,7 @@ if (isset($_GET['user_id']))
 {
     $User->MakeUserAdmin($_GET['user_id']);
 }
+
+$message = "Gebruiker succesvol admin rank toegevoegd!";
+
+header("Location: ../index.php?message=$message");
