@@ -7,3 +7,7 @@ if (isset($_GET['user_id']))
 {
     $User->DeleteUser($_GET['user_id']);
 }
+
+$message = "Gebruiker succesvol verwijderd!";
+
+header("Location: ../adminpanel.php?message=$message");

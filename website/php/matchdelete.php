@@ -7,3 +7,7 @@ if (isset($_GET['match_id']))
 {
     $match->DeleteMatchTeam($_GET['match_id']);
 }
+
+$message = "Match succesvol verwijderd!";
+
+header("Location: ../adminpanel.php?message=$message");
