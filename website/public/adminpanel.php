@@ -24,7 +24,7 @@ foreach ($Poule->GetPoules() as $poule)
     echo '<div class="col-sm-6">
             <div class="panel panel-success">
                 <div class="pull-right">
-                    <button style="margin: 5px 5px 0 0" class="btn btn-success btn-sm " data-toggle="collapse" data-target="#poule'.$poule['id'].'"> Wedstrijden Maken</button>
+                    <button style="margin: 5px 5px 0 0" class="btn btn-success btn-sm " data-toggle="collapse" data-target="#poule'.$poule['id'].'"> Wedstrijd Maken</button>
                 </div>
                 <div class="panel-heading score">'.$poule['naam'].'</div>
                     <div id="poule'.$poule['id'].'" class="collapse">
