@@ -25,7 +25,7 @@ if (!empty($teamname) && !empty($teamimg) && !empty($teamdesc))
         header("Location: ../public/teamsmenager.php?message=$message&mode=success");
     }
     else{
-        $message = "Maximale aantal teams bestaat all";
+        $message = "Maximale aantal teams bestaat al!";
         header("Location: ../public/teams.php?message=$message");
     }
 
