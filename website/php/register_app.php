@@ -17,30 +17,30 @@ if (!empty($email) && !empty($passwordraw) && !empty($name) && !empty($lastname)
                     $register = new Register($name, $lastname, $email, $passwordraw, $db);
                     if (!$register->CheckOfAcountExist()) {
                             $register->Register();
-                            $message = 'You are succesfully registed!';
+                            $message = 'Je bent succesvol geregistreerd!';
                             header("Location: ../public/login.php?message=$message&mode=success");
                     } else {
                         $message = "<span>Gebruiker bestaat al!</span>";
                         header("Location: ../public/login.php?message=$message");
                     }
                 } else {
-                    $message = "<span>Password did not match!</span>";
+                    $message = "<span>Wachtwoord komt niet overeen!</span>";
                     header("Location: ../public/register.php?message=$message");
                 }
             } else{
-                $message = "<span>Password is not valid!</span>";
+                $message = "<span>Wachtwoord is niet geldig!</span>";
                 header("Location: ../public/login.php?message=$message");
             }
         } else {
-            $message = "<span>Lastname/Name is niet geldig!</span>";
+            $message = "<span>Lastname/Naam is niet geldig!</span>";
             header("Location: ../public/register.php?message=$message");
             exit();
         }
     } else {
-        $message = "<span>Email is not valid!</span>";
+        $message = "<span>Email is niet geldig!</span>";
         header("Location: ../public/login.php?message=$message");
     }
 }else{
-    $message = "<span>Missing required data!</span>";
+    $message = "<span>Ontbrekende vereiste gegevens!</span>";
     header("Location: ../public/login.php?message=$message");
 }

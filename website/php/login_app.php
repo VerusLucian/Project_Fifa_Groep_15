@@ -23,7 +23,7 @@ else{
             }
             else
             {
-                $message = "<span>De gegeven data kwam niet overeen!</span>";
+                $message = "<span>De gegeven data komt niet overeen!</span>";
                 header("Location: ../public/login.php?message=$message");
             }
         }
@@ -35,7 +35,7 @@ else{
     }
     else
     {
-        $message = "<span>Geen email en/of wachtwoord meegegeven!</span>";
+        $message = "<span>Geen email en/of wachtwoord is meegegeven!</span>";
         header("Location: ../public/login.php?message=$message");
     }
 }
