@@ -22,7 +22,7 @@ if (!empty($teamname) && !empty($teamimg) && !empty($teamdesc))
         $_SESSION['HaveTeam'] = true;
 
         $message = "Team succesvol toegevoegd!";
-        header("Location: ../public/teams.php?message=$message&mode=success");
+        header("Location: ../public/teamsmenager.php?message=$message&mode=success");
     }
     else{
         $message = "Maximale aantal teams bestaat all";
