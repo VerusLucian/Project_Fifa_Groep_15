@@ -8,12 +8,15 @@ class MatchCollection
     public function __construct($db)
     {
         $this->db = $db;
-        $sql = "SELECT * FROM `tbl_matches` ORDER BY `tbl_matches`.`start_time` DESC;";
+        $sql = "SELECT * FROM `tbl_matches` ORDER BY `tbl_matches`.`start_time` ASC;";
         $this->matchCollection = $this->db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function MakePoulMatchesByPoulId($poule_id)
+    public function MakePoulMatchesByPoulId($poule_id, $start_time, $duration_time)
     {
+        $time_start = strtotime($start_time);
+        $count = 0;
+
         $teams = new TeamCollection($this->db);
         $arr_teams = $teams->GetTeamByPuleId($poule_id);
         $arr_teams_id = array();
@@ -31,28 +34,30 @@ class MatchCollection
             {
                 if ($i != $c)
                 {
-                    $sql = "INSERT INTO `project_fifa`.`tbl_matches` (`id`, `team_id_a`, `team_id_b`, `score_team_a`, `score_team_b`, `start_time`) VALUES (NULL, '$arr_teams_id[$i]', '$arr_teams_id[$c]', NULL, NULL, NULL);";
+                    if ($count == 0)
+                    {
+                        $time = $time_start;
+                    }
+                    else{
+                        $time_start = strtotime("+".substr($duration_time, 0, 2)." hour".substr($duration_time,-2)." minutes", $time_start);
+                        $time = $time_start;
+                    }
+
+                    $time = date('G:i', $time);
+
+                    $sql = "INSERT INTO `project_fifa`.`tbl_matches` (`id`, `team_id_a`, `team_id_b`, `score_team_a`, `score_team_b`, `start_time`) VALUES (NULL, '$arr_teams_id[$i]', '$arr_teams_id[$c]', NULL, NULL, '$time');";
                     $this->db->query($sql);
+                    $count++;
                 }
 
             }
         }
     }
 
-    public function UpdateMatchTimes($start_time, $duration_time, $poule_id)
+    public function ScoreUpdate($match_id, $score_a, $score_b, $time)
     {
-
-        $arr_match_collection = $this->GetMatchByPoulId($poule_id);
-        shuffle($arr_match_collection);
-
-        foreach ($arr_match_collection as $match)
-        {
-            $sql = "UPDATE `project_fifa`.`tbl_matches` SET `start_time` = :timeofmach WHERE `tbl_matches`.`id` = :pouleid ;";
-            $stmt = $this->db->prepare($sql);
-            $stmt->execute(array('timeofmach' => $start_time, 'pouleid' => $match['id']));
-            
-            $start_time += $duration_time;
-        }
+        $sql = "UPDATE `tbl_matches` SET `score_team_a` = '$score_a', `score_team_b`= '$score_b', `start_time` = '$time' WHERE `id` = '$match_id';";
+        $this->Matches = $this->db->query($sql);
     }
 
     public function GetMatchByPoulId($poule_id)

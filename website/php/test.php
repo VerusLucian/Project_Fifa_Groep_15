@@ -10,8 +10,7 @@ $finaltabel = new FinalTabel($db);
 $login = new Login($db);
 $user = new User($db);
 
-
-$user->DeleteUser(32);
+$machs->MakePoulMatchesByPoulId('2', '18:00', '01:30');
 
 
 

@@ -28,9 +28,10 @@ foreach ($Poule->GetPoules() as $poule)
                 </div>
                 <div class="panel-heading score">'.$poule['naam'].'</div>
                     <div id="poule'.$poule['id'].'" class="collapse">
-                        <form class="form-inline">
-                            <input type="time" class="form-control" style="width: 40%;" id="inlineFormInput" placeholder="Begin Tijd">
-                            <input type="time" class="form-control" style="width: 40%;" id="inlineFormInputGroup" placeholder="Tijd van Wedstrijd">
+                        <form class="form-inline" action="../php/match_creator.php" method="post">
+                            <input type="time" class="form-control" style="width: 40%;" id="inlineFormInput" name="start_time" placeholder="Begin Tijd">
+                            <input type="time" class="form-control" style="width: 40%;" id="inlineFormInputGroup" name="duration_time" placeholder="Tijd van Wedstrijd">
+                            <input type="text" name="poule_id" value="'.$poule['id'].'" hidden>
                             <button type="submit" class="btn btn-primary">Submit</button>
                          </form>
                     </div>
@@ -79,7 +80,7 @@ foreach ($Poule->GetPoules() as $poule)
                     <th>Team</th>
                     <th>Team</th>
                     <th>Tijd</th>
-                    <th>Opties</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -93,9 +94,9 @@ foreach ($Poule->GetPoules() as $poule)
                     echo "<td><a href='team_info.php?team_id=".$item['team_id_b']."'>" .$item['team_b']."</a></td>";
                     echo "<td>" .$item['time']."</td>";
                     echo '<td><div class="btn-group" role="group" style="float: right">
-                                    <a href="team_info.php?team_id='.$team['id'].'" class="btn btn-default btn-sm">Wijzigen</a>
-                                    <a href="../php/matchdelete.php?match_id='.$item['id'].'" class="btn btn-danger btn-sm">Verwijderen</a>
-                                    </div></td>';
+                            <a href="team_info.php?team_id='.$item['id'].'" class="btn btn-default btn-sm">Wijzigen</a>
+                            <a href="../php/matchdelete.php?match_id='.$item['id'].'" class="btn btn-danger btn-sm">Verwijderen</a>
+                            </div></td>';
                     echo '</tr>';
                 }
                 ?>
